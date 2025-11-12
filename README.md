@@ -1,73 +1,55 @@
-# Welcome to your Lovable project
+# Immoby - Plateforme de Gestion Immobilière
 
-## Project info
+## À propos du projet
 
-**URL**: https://lovable.dev/projects/fa355c4a-c961-408f-be44-7185a171b087
+Immoby est une plateforme moderne de gestion immobilière développée avec les dernières technologies web.
 
-## How can I edit this code?
+**Auteur**: Akrem Belkahla  
+**Agence**: InfinityWeb  
+**Site web**: [InfinityWeb.tn](https://InfinityWeb.tn)
 
-There are several ways of editing your application.
+## Installation et développement
 
-**Use Lovable**
+### Prérequis
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fa355c4a-c961-408f-be44-7185a171b087) and start prompting.
+- Node.js & npm installés - [installer avec nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Étapes d'installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Cloner le repository
+git clone https://github.com/AkremBelkahla/immoby.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Naviguer dans le dossier du projet
+cd immoby
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Installer les dépendances
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Lancer le serveur de développement
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Technologies utilisées
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Ce projet est construit avec :
 
-**Use GitHub Codespaces**
+- **Vite** - Build tool rapide
+- **TypeScript** - Typage statique
+- **React** - Framework UI
+- **shadcn-ui** - Composants UI
+- **Tailwind CSS** - Framework CSS
+- **React Router** - Routing
+- **Leaflet** - Cartes interactives
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Déploiement
 
-## What technologies are used for this project?
+Le projet peut être déployé sur Netlify, Vercel ou tout autre service d'hébergement statique.
 
-This project is built with:
+```sh
+# Build de production
+npm run build
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/fa355c4a-c961-408f-be44-7185a171b087) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Prévisualiser le build
+npm run preview
+```
