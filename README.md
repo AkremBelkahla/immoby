@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Immoby - Plateforme de Gestion Immobilière
 
 ## À propos du projet
@@ -53,3 +54,6 @@ npm run build
 # Prévisualiser le build
 npm run preview
 ```
+=======
+
+>>>>>>> d87f21dc85ed449c22e7fec7fc557b349fdf2deb
