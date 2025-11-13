@@ -1,59 +1,85 @@
-<<<<<<< HEAD
-# Immoby - Plateforme de Gestion Immobilière
+# Immoby - Real Estate Management Platform
 
-## À propos du projet
+## About the Project
 
-Immoby est une plateforme moderne de gestion immobilière développée avec les dernières technologies web.
+Immoby is a modern real estate management platform built with the latest web technologies, designed to simplify property management and real estate transactions.
 
-**Auteur**: Akrem Belkahla  
-**Agence**: InfinityWeb  
-**Site web**: [InfinityWeb.tn](https://InfinityWeb.tn)
+**Author**: Akrem Belkahla  
+**Agency**: InfinityWeb  
+**Website**: [InfinityWeb.tn](https://InfinityWeb.tn)
 
-## Installation et développement
+## Features
 
-### Prérequis
+- Property listing and management
+- Interactive maps with Leaflet
+- Responsive design with Tailwind CSS
+- Modern UI components with shadcn/ui
+- Type-safe with TypeScript
+- Fast development with Vite
 
-- Node.js & npm installés - [installer avec nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Prerequisites
 
-### Étapes d'installation
+- Node.js (v16 or later) & npm
+- Git
 
+## Getting Started
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/AkremBelkahla/immoby.git
+   ```
+
+2. Navigate to the project directory:
+   ```sh
+   cd immoby
+   ```
+
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+### Development
+
+Start the development server:
 ```sh
-# Cloner le repository
-git clone https://github.com/AkremBelkahla/immoby.git
-
-# Naviguer dans le dossier du projet
-cd immoby
-
-# Installer les dépendances
-npm install
-
-# Lancer le serveur de développement
 npm run dev
 ```
 
-## Technologies utilisées
+### Building for Production
 
-Ce projet est construit avec :
-
-- **Vite** - Build tool rapide
-- **TypeScript** - Typage statique
-- **React** - Framework UI
-- **shadcn-ui** - Composants UI
-- **Tailwind CSS** - Framework CSS
-- **React Router** - Routing
-- **Leaflet** - Cartes interactives
-
-## Déploiement
-
-Le projet peut être déployé sur Netlify, Vercel ou tout autre service d'hébergement statique.
-
+Create a production build:
 ```sh
-# Build de production
 npm run build
+```
 
-# Prévisualiser le build
+Preview the production build locally:
+```sh
 npm run preview
 ```
-=======
 
->>>>>>> d87f21dc85ed449c22e7fec7fc557b349fdf2deb
+## Technologies Used
+
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript
+- [shadcn/ui](https://ui.shadcn.com/) - Beautifully designed components
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [React Router](https://reactrouter.com/) - Routing for React
+- [Leaflet](https://leafletjs.com/) - Interactive maps
+
+## Deployment
+
+This project can be deployed to any static hosting service like Netlify, Vercel, or GitHub Pages.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Akrem Belkahla - [@akrembelkahla](https://github.com/AkremBelkahla)
+
+Project Link: [https://github.com/AkremBelkahla/immoby](https://github.com/AkremBelkahla/immoby)
