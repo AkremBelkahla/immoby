@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
-// Fix pour les icônes Leaflet
+// Fix for Leaflet icons
 const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
@@ -23,20 +23,20 @@ export function MapParis() {
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return;
 
-    // Coordonnées de Paris
+    // Paris coordinates
     const position: L.LatLngExpression = [48.8566, 2.3522];
 
-    // Créer la carte
+    // Create the map
     const map = L.map(mapRef.current).setView(position, 13);
     mapInstanceRef.current = map;
 
-    // Ajouter les tuiles OpenStreetMap
+    // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19,
     }).addTo(map);
 
-    // Ajouter un marqueur
+    // Add a marker
     const marker = L.marker(position).addTo(map);
     marker.bindPopup(`
       <strong>Immoby</strong><br/>

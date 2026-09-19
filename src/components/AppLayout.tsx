@@ -16,40 +16,40 @@ const navigation = [
     icon: Home,
   },
   {
-    name: "Locatif",
+    name: "Rentals",
     icon: Building2,
     children: [
-      { name: "Biens", href: "/locatif/biens" },
-      { name: "Baux", href: "/locatif/baux" },
-      { name: "Locataires", href: "/locatif/locataires" },
-      { name: "États des lieux", href: "/locatif/etats-lieux" },
+      { name: "Properties", href: "/locatif/biens" },
+      { name: "Leases", href: "/locatif/baux" },
+      { name: "Tenants", href: "/locatif/locataires" },
+      { name: "Inspections", href: "/locatif/etats-lieux" },
     ],
   },
   {
-    name: "Propriétaires",
+    name: "Owners",
     icon: Users,
     children: [
-      { name: "Liste des propriétaires", href: "/proprietaires/liste" },
-      { name: "Revenus par bien", href: "/proprietaires/revenus" },
+      { name: "Owners list", href: "/proprietaires/liste" },
+      { name: "Revenue per property", href: "/proprietaires/revenus" },
     ],
   },
   {
-    name: "SAV",
+    name: "Support",
     icon: Wrench,
     children: [
       { name: "Tickets", href: "/sav/tickets" },
       { name: "Interventions", href: "/sav/interventions" },
-      { name: "Prestataires", href: "/sav/prestataires" },
+      { name: "Contractors", href: "/sav/prestataires" },
     ],
   },
   {
-    name: "Comptabilité",
+    name: "Accounting",
     icon: Calculator,
     children: [
-      { name: "Écritures", href: "/compta/ecritures" },
-      { name: "Factures", href: "/compta/factures" },
-      { name: "Règlements", href: "/compta/reglements" },
-      { name: "Export comptable", href: "/compta/export" },
+      { name: "Entries", href: "/compta/ecritures" },
+      { name: "Invoices", href: "/compta/factures" },
+      { name: "Payments", href: "/compta/reglements" },
+      { name: "Accounting export", href: "/compta/export" },
     ],
   },
   {
@@ -58,12 +58,12 @@ const navigation = [
     href: "/documents",
   },
   {
-    name: "Rapports",
+    name: "Reports",
     icon: BarChart3,
     href: "/rapports",
   },
   {
-    name: "Agenda",
+    name: "Calendar",
     icon: Calendar,
     href: "/agenda",
   },
@@ -159,7 +159,7 @@ export function AppLayout() {
           <Link to="/parametres">
             <Button variant="outline" className={cn("w-full", sidebarCollapsed && "px-2")}>
               <Settings className={cn("h-4 w-4", !sidebarCollapsed && "mr-2")} />
-              {!sidebarCollapsed && "Paramètres"}
+              {!sidebarCollapsed && "Settings"}
             </Button>
           </Link>
         </div>
@@ -173,7 +173,7 @@ export function AppLayout() {
             <div className="relative w-full max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Rechercher..."
+                placeholder="Search..."
                 className="pl-9"
               />
             </div>

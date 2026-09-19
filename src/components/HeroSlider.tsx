@@ -9,18 +9,18 @@ import hero3 from "@/assets/hero-3.jpg";
 const slides = [
   {
     image: hero1,
-    title: "Gérez tous vos biens immobiliers",
-    subtitle: "Une plateforme complète pour la gestion locative professionnelle",
+    title: "Manage all your properties",
+    subtitle: "A complete platform for professional rental management",
   },
   {
     image: hero2,
-    title: "Simplifiez votre gestion locative",
-    subtitle: "Baux, paiements, maintenance : tout en un seul endroit",
+    title: "Simplify your rental management",
+    subtitle: "Leases, payments, maintenance: all in one place",
   },
   {
     image: hero3,
-    title: "Optimisez votre rentabilité",
-    subtitle: "Tableaux de bord et analytics pour piloter votre activité",
+    title: "Optimize your profitability",
+    subtitle: "Dashboards and analytics to drive your business",
   },
 ];
 
@@ -75,13 +75,13 @@ export function HeroSlider() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link to="/dashboard">
                   <Button size="lg" className="text-lg h-12 bg-primary hover:bg-primary/90">
-                    Accéder au dashboard
+                    Go to dashboard
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link to="/contact">
                   <Button size="lg" variant="outline" className="text-lg h-12 bg-white/10 text-white border-white hover:bg-white hover:text-primary backdrop-blur-sm">
-                    Demander une démo
+                    Request a demo
                   </Button>
                 </Link>
               </div>
@@ -94,14 +94,14 @@ export function HeroSlider() {
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-colors"
-        aria-label="Slide précédent"
+        aria-label="Previous slide"
       >
         <ChevronLeft className="h-6 w-6 text-white" />
       </button>
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-colors"
-        aria-label="Slide suivant"
+        aria-label="Next slide"
       >
         <ChevronRight className="h-6 w-6 text-white" />
       </button>
@@ -117,7 +117,7 @@ export function HeroSlider() {
                 ? "bg-white w-8"
                 : "bg-white/50 hover:bg-white/70"
             }`}
-            aria-label={`Aller au slide ${index + 1}`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>

@@ -16,13 +16,13 @@ export function MarketingLayout() {
           
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/location" className="text-sm font-medium hover:text-primary transition-colors">
-              Location
+              Rentals
             </Link>
             <Link to="/fonctionnalites" className="text-sm font-medium hover:text-primary transition-colors">
-              Fonctionnalités
+              Features
             </Link>
             <Link to="/tarifs" className="text-sm font-medium hover:text-primary transition-colors">
-              Tarifs
+              Pricing
             </Link>
             <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
@@ -53,18 +53,18 @@ export function MarketingLayout() {
             </div>
             <nav className="flex gap-6 text-sm text-muted-foreground">
               <Link to="/a-propos" className="hover:text-primary transition-colors">
-                À propos
+                About
               </Link>
               <Link to="/mentions-legales" className="hover:text-primary transition-colors">
-                Mentions légales
+                Legal notice
               </Link>
               <Link to="/politique-de-confidentialite" className="hover:text-primary transition-colors">
-                Politique de confidentialité
+                Privacy policy
               </Link>
             </nav>
             <div className="text-sm text-muted-foreground text-center md:text-right">
-              <p>© 2024 Immoby. Tous droits réservés.</p>
-              <p>Développé avec ❤️ par <a href="https://infinityweb.tn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">InfinityWeb.tn</a></p>
+              <p>© 2024 Immoby. All rights reserved.</p>
+              <p>Built with ❤️ by <a href="https://infinityweb.tn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">InfinityWeb.tn</a></p>
             </div>
           </div>
         </div>

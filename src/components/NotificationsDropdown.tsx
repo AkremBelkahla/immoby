@@ -14,23 +14,23 @@ export function NotificationsDropdown() {
   const notifications = [
     {
       id: 1,
-      title: "Nouveau ticket",
-      description: "Fuite d'eau signalée - Appartement 12",
-      time: "Il y a 5 min",
+      title: "New ticket",
+      description: "Water leak reported - Apartment 12",
+      time: "5 min ago",
       unread: true,
     },
     {
       id: 2,
-      title: "Bail à renouveler",
-      description: "Le bail de M. Dupont expire dans 30 jours",
-      time: "Il y a 2h",
+      title: "Lease to renew",
+      description: "Mr. Dupont's lease expires in 30 days",
+      time: "2h ago",
       unread: true,
     },
     {
       id: 3,
-      title: "Paiement reçu",
-      description: "Loyer de septembre - Studio Paris 15e",
-      time: "Hier",
+      title: "Payment received",
+      description: "September rent - Studio Paris 15th",
+      time: "Yesterday",
       unread: false,
     },
   ];
@@ -56,7 +56,7 @@ export function NotificationsDropdown() {
         <DropdownMenuLabel className="flex items-center justify-between">
           <span>Notifications</span>
           {unreadCount > 0 && (
-            <Badge variant="secondary">{unreadCount} non lues</Badge>
+            <Badge variant="secondary">{unreadCount} unread</Badge>
           )}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -85,7 +85,7 @@ export function NotificationsDropdown() {
         </div>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="text-center justify-center text-primary cursor-pointer">
-          Voir toutes les notifications
+          View all notifications
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

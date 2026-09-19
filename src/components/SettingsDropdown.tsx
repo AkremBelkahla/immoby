@@ -20,36 +20,36 @@ export function SettingsDropdown() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
+        <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link to="/dashboard" className="cursor-pointer">
             <User className="mr-2 h-4 w-4" />
-            <span>Profil</span>
+            <span>Profile</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link to="/" className="cursor-pointer">
             <Home className="mr-2 h-4 w-4" />
-            <span>Retour au site</span>
+            <span>Back to site</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem className="cursor-pointer">
           <Palette className="mr-2 h-4 w-4" />
-          <span className="flex-1">Thème</span>
+          <span className="flex-1">Theme</span>
           <ThemeToggle />
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link to="/contact" className="cursor-pointer">
             <HelpCircle className="mr-2 h-4 w-4" />
-            <span>Aide & Support</span>
+            <span>Help & Support</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer text-destructive focus:text-destructive">
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Déconnexion</span>
+          <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

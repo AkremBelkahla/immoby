@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([
-    { text: "Bonjour ! Comment puis-je vous aider ?", isUser: false },
+    { text: "Hello! How can I help you?", isUser: false },
   ]);
   const [input, setInput] = useState("");
 
@@ -21,7 +21,7 @@ export function Chatbot() {
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
-        { text: "Merci pour votre message ! Un conseiller vous répondra bientôt.", isUser: false },
+        { text: "Thank you for your message! An advisor will get back to you soon.", isUser: false },
       ]);
     }, 1000);
 
@@ -54,7 +54,7 @@ export function Chatbot() {
           {/* Header */}
           <div className="p-4 border-b bg-primary text-primary-foreground rounded-t-lg">
             <h3 className="font-semibold">Chat Immoby</h3>
-            <p className="text-sm opacity-90">Nous sommes là pour vous aider</p>
+            <p className="text-sm opacity-90">We're here to help</p>
           </div>
 
           {/* Messages */}
@@ -88,7 +88,7 @@ export function Chatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                placeholder="Écrivez votre message..."
+                placeholder="Type your message..."
                 className="flex-1"
               />
               <Button onClick={handleSend} size="icon">
