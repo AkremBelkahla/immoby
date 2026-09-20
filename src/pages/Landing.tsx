@@ -287,9 +287,9 @@ export default function Landing() {
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="relative w-full max-w-screen-md text-center lg:py-14 lg:text-left xl:py-20">
               <span className="absolute -top-8 right-10 hidden sm:block lg:top-0 lg:-right-44">
-                <img src={circleText} alt="Circle text" className="size-16 animate-[spin_10s_linear_infinite] lg:size-28" />
+                <img src={circleText} alt="Circle text" className="size-16 animate-[spin_10s_linear_infinite] lg:size-28 dark:invert" />
                 <Link to="/location">
-                  <ArrowUpRight className="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2 text-primary duration-300 hover:rotate-45 lg:size-8" />
+                  <ArrowUpRight className="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2 text-primary duration-300 hover:rotate-45 lg:size-8 dark:text-white" />
                 </Link>
               </span>
               <span className="rounded-md bg-primary px-2 py-1 text-xs tracking-wider text-white uppercase">
@@ -449,7 +449,7 @@ export default function Landing() {
                   i === 3 && "sm:bg-primary/5 sm:border-0 xl:bg-transparent xl:border"
                 )}
               >
-                <img src={s.icon} alt="" aria-hidden="true" className="absolute top-3 right-3 size-24 opacity-[3%] sm:size-32" />
+                <img src={s.icon} alt="" aria-hidden="true" className="absolute top-3 right-3 size-24 opacity-[3%] sm:size-32 dark:invert" />
                 <span className="relative text-5xl font-bold text-primary lg:text-6xl">
                   {i + 1}
                   <span className="absolute top-5 left-1 inline-block size-10 bg-primary/10" />

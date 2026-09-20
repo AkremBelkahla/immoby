@@ -1,7 +1,7 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Building2, Home, FileText, Wrench, Calculator, Search, FolderOpen, BarChart3, Calendar, Settings, Users, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Building2, Home, FileText, Wrench, Calculator, Search, FolderOpen, BarChart3, Calendar, Settings, Users, TrendingUp, ChevronLeft, ChevronRight, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NotificationsDropdown } from "@/components/NotificationsDropdown";
 import { SettingsDropdown } from "@/components/SettingsDropdown";
@@ -179,6 +179,12 @@ export function AppLayout() {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <Button variant="ghost" asChild>
+              <Link to="/">
+                <Globe className="h-4 w-4 mr-2" />
+                Back to site
+              </Link>
+            </Button>
             <ThemeToggle />
             <NotificationsDropdown />
             <SettingsDropdown />

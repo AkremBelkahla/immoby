@@ -1,4 +1,4 @@
-import { Settings, User, LogOut, HelpCircle, Palette, Home } from "lucide-react";
+import { Settings, User, LogOut, HelpCircle, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -26,12 +26,6 @@ export function SettingsDropdown() {
           <Link to="/dashboard" className="cursor-pointer">
             <User className="mr-2 h-4 w-4" />
             <span>Profile</span>
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link to="/" className="cursor-pointer">
-            <Home className="mr-2 h-4 w-4" />
-            <span>Back to site</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem className="cursor-pointer">
