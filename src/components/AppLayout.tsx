@@ -121,8 +121,8 @@ export function AppLayout() {
               ) : (
                 <>
                   {!sidebarCollapsed && (
-                    <div className="flex items-center gap-3 px-3 py-2 text-sm font-semibold text-sidebar-foreground">
-                      <item.icon className="h-5 w-5" />
+                    <div className="flex items-center gap-3 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      <item.icon className="h-5 w-5 text-primary" />
                       {item.name}
                     </div>
                   )}
@@ -168,7 +168,7 @@ export function AppLayout() {
       {/* Main content */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Topbar */}
-        <header className="flex h-16 items-center gap-4 border-b bg-background px-6">
+        <header className="flex h-16 items-center gap-4 border-b bg-white px-6">
           <div className="flex-1 flex items-center gap-4">
             <div className="relative w-full max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />

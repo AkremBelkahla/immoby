@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { PageHeaderBg } from "@/components/PageHeaderBg";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import { Building2, Home, MapPin, Maximize2 } from "lucide-react";
+import { MapPin, Maximize2 } from "lucide-react";
 
 type BienLocation = {
   id: string;
@@ -73,9 +72,9 @@ export default function Location() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters sidebar */}
           <aside className="lg:w-64 space-y-6">
-            <Card>
+            <Card className="rounded-2xl border-gray/20">
               <CardHeader>
-                <CardTitle className="text-lg">Filters</CardTitle>
+                <CardTitle className="text-lg text-black">Filters</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -134,13 +133,13 @@ export default function Location() {
                   />
                 </div>
 
-                <Button variant="outline" onClick={resetFilters} className="w-full">
+                <Button variant="outline" onClick={resetFilters} className="btn-outline w-full">
                   Reset
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="bg-primary text-primary-foreground">
+            <Card className="rounded-2xl border-primary/20 bg-primary text-primary-foreground">
               <CardContent className="pt-6">
                 <p className="text-sm">
                   <strong>{filteredBiens.length}</strong> propert{filteredBiens.length > 1 ? "ies" : "y"} available
@@ -153,43 +152,45 @@ export default function Location() {
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
               {currentBiens.map((bien) => (
-                <Card key={bien.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative h-48 bg-muted">
+                <div key={bien.id} className="w-full overflow-hidden rounded-2xl border border-gray/20 bg-white p-1.5">
+                  <div className="group relative h-48 overflow-hidden rounded-lg">
                     <img
                       src={bien.image}
                       alt={bien.titre}
-                      className="w-full h-full object-cover"
+                      className="h-full w-full object-cover duration-300 group-hover:scale-105"
                       onError={(e) => {
                         e.currentTarget.src = "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=400&h=300&fit=crop";
                       }}
                     />
-                    <Badge className="absolute top-2 right-2">
+                    <span className="absolute top-3 left-2 rounded border border-gray/30 bg-white/50 px-2 py-1 text-sm/4 font-semibold text-black backdrop-blur-xl">
                       {bien.type}
-                    </Badge>
+                    </span>
                   </div>
-                  
-                  <CardHeader>
-                    <CardTitle className="text-lg line-clamp-1">{bien.titre}</CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4" />
-                      {bien.ville}
+
+                  <div className="p-2 pt-4">
+                    <div className="pb-2.5">
+                      <span className="mb-1.5 inline-block line-clamp-1 text-lg/6 font-semibold text-black">
+                        {bien.titre}
+                      </span>
+                      <div className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-gray-light p-2">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="size-5 shrink-0 text-primary" />
+                          <span className="text-sm font-semibold">{bien.ville}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Maximize2 className="size-5 shrink-0 text-primary" />
+                          <span className="text-sm font-semibold">{bien.surface}&nbsp;m²</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Maximize2 className="h-4 w-4" />
-                      {bien.surface} m²
+                    <div className="mt-2.5 flex items-end justify-between">
+                      <p className="text-base/5 font-semibold text-primary md:text-lg/5">
+                        {bien.loyer}€<span className="text-sm font-normal text-gray">/month</span>
+                      </p>
+                      <Button className="btn h-7">View property</Button>
                     </div>
-                    <div className="text-2xl font-bold text-primary">
-                      {bien.loyer}€<span className="text-sm font-normal text-muted-foreground">/month</span>
-                    </div>
-                  </CardContent>
-                  
-                  <CardFooter>
-                    <Button className="w-full">View property</Button>
-                  </CardFooter>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
 

@@ -1,5 +1,3 @@
-import pageHeaderBg from "@/assets/page-header.jpg";
-
 interface PageHeaderBgProps {
   title: string;
   subtitle?: string;
@@ -7,20 +5,14 @@ interface PageHeaderBgProps {
 
 export function PageHeaderBg({ title, subtitle }: PageHeaderBgProps) {
   return (
-    <div className="relative h-[200px] md:h-[250px] overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${pageHeaderBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
-      </div>
-      
-      <div className="relative h-full container flex flex-col items-center justify-center text-center text-white">
-        <h1 className="text-3xl md:text-5xl font-bold mb-2 animate-fade-in">
+    <div className="bg-gradient-to-b from-white to-transparent py-12 lg:py-16">
+      <div className="container">
+        <h1 className="text-3xl font-semibold text-black lg:text-5xl/snug">
           {title}
         </h1>
+        <span className="mt-3 block h-0.5 w-36 rounded-full bg-gradient-to-r from-primary via-primary/70 to-transparent" />
         {subtitle && (
-          <p className="text-lg md:text-xl opacity-90 animate-fade-in">
+          <p className="mt-4 max-w-2xl text-sm text-gray lg:text-base">
             {subtitle}
           </p>
         )}
