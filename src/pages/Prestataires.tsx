@@ -7,10 +7,10 @@ import { Plus, Star } from "lucide-react";
 
 const mockPrestataires = Array.from({ length: 8 }, (_, i) => ({
   id: (i + 1).toString(),
-  nom: `Prestataire ${i + 1}`,
-  specialite: ["Plomberie", "Électricité", "Peinture", "Serrurerie"][i % 4],
+  nom: `Contractor ${i + 1}`,
+  specialite: ["Plumbing", "Electrical", "Painting", "Locksmith"][i % 4],
   telephone: `06 ${Math.floor(10000000 + Math.random() * 90000000)}`,
-  email: `prestataire${i + 1}@email.com`,
+  email: `contractor${i + 1}@email.com`,
   note: (3 + Math.random() * 2).toFixed(1),
   nbInterventions: Math.floor(Math.random() * 20) + 5,
 }));
@@ -19,12 +19,12 @@ export default function Prestataires() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Prestataires"
-        description="Gérez vos prestataires de services"
+        title="Contractors"
+        description="Manage your service providers"
         actions={
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Nouveau prestataire
+            New contractor
           </Button>
         }
       />
@@ -35,10 +35,10 @@ export default function Prestataires() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Nom</TableHead>
-                <TableHead>Spécialité</TableHead>
+                <TableHead>Name</TableHead>
+                <TableHead>Specialty</TableHead>
                 <TableHead>Contact</TableHead>
-                <TableHead>Note</TableHead>
+                <TableHead>Rating</TableHead>
                 <TableHead>Interventions</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
@@ -64,7 +64,7 @@ export default function Prestataires() {
                   </TableCell>
                   <TableCell>{prestataire.nbInterventions}</TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm">Voir</Button>
+                    <Button variant="ghost" size="sm">View</Button>
                   </TableCell>
                 </TableRow>
               ))}

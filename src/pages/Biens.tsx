@@ -70,9 +70,9 @@ export default function Biens() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm("Êtes-vous sûr de vouloir supprimer ce bien ?")) {
+    if (confirm("Are you sure you want to delete this property?")) {
       setBiens(biens.filter((b) => b.id !== id));
-      toast.success("Bien supprimé avec succès");
+      toast.success("Property deleted successfully");
     }
   };
 
@@ -84,19 +84,19 @@ export default function Biens() {
       id: editingBien?.id || Date.now().toString(),
       titre: formData.get("titre") as string,
       ville: formData.get("ville") as string,
-      type: formData.get("type") as "Appartement" | "Maison" | "Local",
+      type: formData.get("type") as "Apartment" | "House" | "Commercial",
       surface: Number(formData.get("surface")),
       loyer: Number(formData.get("loyer")),
-      statut: formData.get("statut") as "Disponible" | "Loué",
+      statut: formData.get("statut") as "Available" | "Rented",
       createdAt: editingBien?.createdAt || new Date().toISOString(),
     };
 
     if (editingBien) {
       setBiens(biens.map((b) => (b.id === editingBien.id ? bienData : b)));
-      toast.success("Bien modifié avec succès");
+      toast.success("Property updated successfully");
     } else {
       setBiens([...biens, bienData]);
-      toast.success("Bien ajouté avec succès");
+      toast.success("Property added successfully");
     }
 
     setDialogOpen(false);
@@ -105,30 +105,30 @@ export default function Biens() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Gestion des biens"
-        description="Gérez votre patrimoine immobilier"
+        title="Property management"
+        description="Manage your real estate portfolio"
         actions={
           <div className="flex gap-2">
             <Button variant="outline" onClick={() => {
               localStorage.removeItem("immo:biens");
               window.location.reload();
             }}>
-              Réinitialiser les données
+              Reset data
             </Button>
             <Button onClick={handleAdd}>
               <PlusCircle className="mr-2 h-4 w-4" />
-              Ajouter un bien
+              Add property
             </Button>
           </div>
         }
       />
 
-      {/* Filtres */}
+      {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Rechercher un bien..."
+            placeholder="Search a property..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-9"
@@ -136,12 +136,12 @@ export default function Biens() {
         </div>
         <Select value={filterStatut} onValueChange={setFilterStatut}>
           <SelectTrigger className="w-full sm:w-[200px]">
-            <SelectValue placeholder="Statut" />
+            <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Tous les statuts</SelectItem>
-            <SelectItem value="Disponible">Disponible</SelectItem>
-            <SelectItem value="Loué">Loué</SelectItem>
+            <SelectItem value="all">All statuses</SelectItem>
+            <SelectItem value="Available">Available</SelectItem>
+            <SelectItem value="Rented">Rented</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -151,12 +151,12 @@ export default function Biens() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Titre</TableHead>
-              <TableHead>Ville</TableHead>
+              <TableHead>Title</TableHead>
+              <TableHead>City</TableHead>
               <TableHead>Type</TableHead>
-              <TableHead>Surface</TableHead>
-              <TableHead>Loyer</TableHead>
-              <TableHead>Statut</TableHead>
+              <TableHead>Area</TableHead>
+              <TableHead>Rent</TableHead>
+              <TableHead>Status</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -172,7 +172,7 @@ export default function Biens() {
                   <TableCell>{bien.loyer} €</TableCell>
                   <TableCell>
                     <Badge
-                      variant={bien.statut === "Loué" ? "default" : "secondary"}
+                      variant={bien.statut === "Rented" ? "default" : "secondary"}
                     >
                       {bien.statut}
                     </Badge>
@@ -237,15 +237,15 @@ export default function Biens() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              {editingBien ? "Modifier le bien" : "Ajouter un bien"}
+              {editingBien ? "Edit property" : "Add property"}
             </DialogTitle>
             <DialogDescription>
-              Remplissez les informations du bien immobilier
+              Fill in the property details
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="titre">Titre</Label>
+              <Label htmlFor="titre">Title</Label>
               <Input
                 id="titre"
                 name="titre"
@@ -255,7 +255,7 @@ export default function Biens() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="ville">Ville</Label>
+                <Label htmlFor="ville">City</Label>
                 <Input
                   id="ville"
                   name="ville"
@@ -265,21 +265,21 @@ export default function Biens() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="type">Type</Label>
-                <Select name="type" defaultValue={editingBien?.type || "Appartement"}>
+                <Select name="type" defaultValue={editingBien?.type || "Apartment"}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Appartement">Appartement</SelectItem>
-                    <SelectItem value="Maison">Maison</SelectItem>
-                    <SelectItem value="Local">Local</SelectItem>
+                    <SelectItem value="Apartment">Apartment</SelectItem>
+                    <SelectItem value="House">House</SelectItem>
+                    <SelectItem value="Commercial">Commercial</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="surface">Surface (m²)</Label>
+                <Label htmlFor="surface">Area (m²)</Label>
                 <Input
                   id="surface"
                   name="surface"
@@ -289,7 +289,7 @@ export default function Biens() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="loyer">Loyer (€)</Label>
+                <Label htmlFor="loyer">Rent (€)</Label>
                 <Input
                   id="loyer"
                   name="loyer"
@@ -300,23 +300,23 @@ export default function Biens() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="statut">Statut</Label>
-              <Select name="statut" defaultValue={editingBien?.statut || "Disponible"}>
+              <Label htmlFor="statut">Status</Label>
+              <Select name="statut" defaultValue={editingBien?.statut || "Available"}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Disponible">Disponible</SelectItem>
-                  <SelectItem value="Loué">Loué</SelectItem>
+                  <SelectItem value="Available">Available</SelectItem>
+                  <SelectItem value="Rented">Rented</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                Annuler
+                Cancel
               </Button>
               <Button type="submit">
-                {editingBien ? "Modifier" : "Ajouter"}
+                {editingBien ? "Save" : "Add"}
               </Button>
             </DialogFooter>
           </form>

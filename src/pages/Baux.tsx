@@ -55,7 +55,7 @@ export default function Baux() {
     return filterStatut === "all" || bail.statut === filterStatut;
   });
 
-  const bauxActifs = baux.filter((b) => b.statut === "Actif");
+  const bauxActifs = baux.filter((b) => b.statut === "Active");
   const loyerMoyen = bauxActifs.length
     ? Math.round(bauxActifs.reduce((sum, b) => sum + b.loyer, 0) / bauxActifs.length)
     : 0;
@@ -71,9 +71,9 @@ export default function Baux() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm("Êtes-vous sûr de vouloir supprimer ce bail ?")) {
+    if (confirm("Are you sure you want to delete this lease?")) {
       setBaux(baux.filter((b) => b.id !== id));
-      toast.success("Bail supprimé avec succès");
+      toast.success("Lease deleted successfully");
     }
   };
 
@@ -89,15 +89,15 @@ export default function Baux() {
       fin: (formData.get("fin") as string) || undefined,
       loyer: Number(formData.get("loyer")),
       depot: Number(formData.get("depot")),
-      statut: formData.get("statut") as "Actif" | "Clos",
+      statut: formData.get("statut") as "Active" | "Closed",
     };
 
     if (editingBail) {
       setBaux(baux.map((b) => (b.id === editingBail.id ? bailData : b)));
-      toast.success("Bail modifié avec succès");
+      toast.success("Lease updated successfully");
     } else {
       setBaux([...baux, bailData]);
-      toast.success("Bail ajouté avec succès");
+      toast.success("Lease added successfully");
     }
 
     setDialogOpen(false);
@@ -105,18 +105,18 @@ export default function Baux() {
 
   const getBienTitre = (bienId: string) => {
     const bien = biens.find((b) => b.id === bienId);
-    return bien?.titre || "Inconnu";
+    return bien?.titre || "Unknown";
   };
 
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Gestion des baux"
-        description="Suivez vos contrats de location"
+        title="Lease management"
+        description="Track your rental agreements"
         actions={
           <Button onClick={handleAdd}>
             <PlusCircle className="mr-2 h-4 w-4" />
-            Ajouter un bail
+            Add lease
           </Button>
         }
       />
@@ -124,29 +124,29 @@ export default function Baux() {
       {/* KPIs */}
       <div className="grid gap-4 md:grid-cols-2">
         <Kpi
-          title="Baux actifs"
+          title="Active leases"
           value={bauxActifs.length}
           icon={FileText}
-          description="Contrats en cours"
+          description="Ongoing contracts"
         />
         <Kpi
-          title="Loyer moyen"
+          title="Average rent"
           value={`${loyerMoyen}€`}
           icon={TrendingUp}
-          description="Par bien loué"
+          description="Per rented property"
         />
       </div>
 
-      {/* Filtre */}
+      {/* Filter */}
       <div className="flex gap-4">
         <Select value={filterStatut} onValueChange={setFilterStatut}>
           <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Statut" />
+            <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Tous les statuts</SelectItem>
-            <SelectItem value="Actif">Actif</SelectItem>
-            <SelectItem value="Clos">Clos</SelectItem>
+            <SelectItem value="all">All statuses</SelectItem>
+            <SelectItem value="Active">Active</SelectItem>
+            <SelectItem value="Closed">Closed</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -156,13 +156,13 @@ export default function Baux() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Bien</TableHead>
-              <TableHead>Locataire</TableHead>
-              <TableHead>Début</TableHead>
-              <TableHead>Fin</TableHead>
-              <TableHead>Loyer</TableHead>
-              <TableHead>Dépôt</TableHead>
-              <TableHead>Statut</TableHead>
+              <TableHead>Property</TableHead>
+              <TableHead>Tenant</TableHead>
+              <TableHead>Start</TableHead>
+              <TableHead>End</TableHead>
+              <TableHead>Rent</TableHead>
+              <TableHead>Deposit</TableHead>
+              <TableHead>Status</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -175,12 +175,12 @@ export default function Baux() {
                   <TableCell>{bail.locataire}</TableCell>
                   <TableCell>{new Date(bail.debut).toLocaleDateString()}</TableCell>
                   <TableCell>
-                    {bail.fin ? new Date(bail.fin).toLocaleDateString() : "En cours"}
+                    {bail.fin ? new Date(bail.fin).toLocaleDateString() : "Ongoing"}
                   </TableCell>
                   <TableCell>{bail.loyer} €</TableCell>
                   <TableCell>{bail.depot} €</TableCell>
                   <TableCell>
-                    <Badge variant={bail.statut === "Actif" ? "default" : "secondary"}>
+                    <Badge variant={bail.statut === "Active" ? "default" : "secondary"}>
                       {bail.statut}
                     </Badge>
                   </TableCell>
@@ -244,18 +244,18 @@ export default function Baux() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              {editingBail ? "Modifier le bail" : "Ajouter un bail"}
+              {editingBail ? "Edit lease" : "Add lease"}
             </DialogTitle>
             <DialogDescription>
-              Remplissez les informations du contrat de location
+              Fill in the rental agreement details
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="bienId">Bien</Label>
+              <Label htmlFor="bienId">Property</Label>
               <Select name="bienId" defaultValue={editingBail?.bienId} required>
                 <SelectTrigger>
-                  <SelectValue placeholder="Sélectionner un bien" />
+                  <SelectValue placeholder="Select a property" />
                 </SelectTrigger>
                 <SelectContent>
                   {biens.map((bien) => (
@@ -267,7 +267,7 @@ export default function Baux() {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="locataire">Locataire</Label>
+              <Label htmlFor="locataire">Tenant</Label>
               <Input
                 id="locataire"
                 name="locataire"
@@ -277,7 +277,7 @@ export default function Baux() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="debut">Date de début</Label>
+                <Label htmlFor="debut">Start date</Label>
                 <Input
                   id="debut"
                   name="debut"
@@ -287,13 +287,13 @@ export default function Baux() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="fin">Date de fin</Label>
+                <Label htmlFor="fin">End date</Label>
                 <Input id="fin" name="fin" type="date" defaultValue={editingBail?.fin} />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="loyer">Loyer (€)</Label>
+                <Label htmlFor="loyer">Rent (€)</Label>
                 <Input
                   id="loyer"
                   name="loyer"
@@ -303,7 +303,7 @@ export default function Baux() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="depot">Dépôt de garantie (€)</Label>
+                <Label htmlFor="depot">Security deposit (€)</Label>
                 <Input
                   id="depot"
                   name="depot"
@@ -314,23 +314,23 @@ export default function Baux() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="statut">Statut</Label>
-              <Select name="statut" defaultValue={editingBail?.statut || "Actif"}>
+              <Label htmlFor="statut">Status</Label>
+              <Select name="statut" defaultValue={editingBail?.statut || "Active"}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Actif">Actif</SelectItem>
-                  <SelectItem value="Clos">Clos</SelectItem>
+                  <SelectItem value="Active">Active</SelectItem>
+                  <SelectItem value="Closed">Closed</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                Annuler
+                Cancel
               </Button>
               <Button type="submit">
-                {editingBail ? "Modifier" : "Ajouter"}
+                {editingBail ? "Save" : "Add"}
               </Button>
             </DialogFooter>
           </form>

@@ -9,25 +9,25 @@ import { Calendar as CalendarIcon, Plus, Clock } from "lucide-react";
 
 const echeances = Array.from({ length: 5 }, (_, i) => ({
   id: i,
-  bail: `Bail Appartement T${i + 1}`,
-  locataire: `Locataire ${i + 1}`,
-  date: new Date(2025, i, 15).toLocaleDateString("fr-FR"),
-  type: i % 2 === 0 ? "Fin de bail" : "Renouvellement",
+  bail: `Lease Apartment ${i + 1}BR`,
+  locataire: `Tenant ${i + 1}`,
+  date: new Date(2025, i, 15).toLocaleDateString("en-US"),
+  type: i % 2 === 0 ? "Lease end" : "Renewal",
 }));
 
 const interventions = Array.from({ length: 6 }, (_, i) => ({
   id: i,
   titre: `Intervention ${i + 1}`,
-  bien: `Appartement T${(i % 3) + 1}`,
-  date: new Date(2024, 11, i + 10).toLocaleDateString("fr-FR"),
+  bien: `Apartment ${(i % 3) + 1}BR`,
+  date: new Date(2024, 11, i + 10).toLocaleDateString("en-US"),
   heure: `${10 + i}:00`,
 }));
 
 const visites = Array.from({ length: 4 }, (_, i) => ({
   id: i,
-  bien: `Appartement T${i + 2}`,
+  bien: `Apartment ${i + 2}BR`,
   visiteur: `Prospect ${i + 1}`,
-  date: new Date(2024, 11, i + 5).toLocaleDateString("fr-FR"),
+  date: new Date(2024, 11, i + 5).toLocaleDateString("en-US"),
   heure: `${14 + i}:00`,
 }));
 
@@ -37,20 +37,20 @@ export default function Agenda() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Agenda"
-        description="Gérez vos événements et échéances"
+        title="Calendar"
+        description="Manage your events and deadlines"
         actions={
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Nouvel événement
+            New event
           </Button>
         }
       />
 
       <Tabs defaultValue="calendrier" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="calendrier">Vue calendrier</TabsTrigger>
-          <TabsTrigger value="liste">Liste des événements</TabsTrigger>
+          <TabsTrigger value="calendrier">Calendar view</TabsTrigger>
+          <TabsTrigger value="liste">Events list</TabsTrigger>
         </TabsList>
 
         <TabsContent value="calendrier">
@@ -69,9 +69,9 @@ export default function Agenda() {
             <Card className="md:col-span-2">
               <CardContent className="pt-6">
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold">Événements du jour</h3>
+                  <h3 className="text-lg font-semibold">Today's events</h3>
                   <div className="text-sm text-muted-foreground">
-                    Aucun événement prévu pour cette date.
+                    No events scheduled for this date.
                   </div>
                 </div>
               </CardContent>
@@ -85,7 +85,7 @@ export default function Agenda() {
               <CardContent className="pt-6">
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                   <CalendarIcon className="h-5 w-5 text-primary" />
-                  Échéances de baux
+                  Lease deadlines
                 </h3>
                 <div className="space-y-3">
                   {echeances.map((echeance) => (
@@ -98,7 +98,7 @@ export default function Agenda() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <Badge variant={echeance.type === "Fin de bail" ? "destructive" : "default"}>
+                        <Badge variant={echeance.type === "Lease end" ? "destructive" : "default"}>
                           {echeance.type}
                         </Badge>
                         <div className="text-sm text-muted-foreground mt-1">{echeance.date}</div>
@@ -113,7 +113,7 @@ export default function Agenda() {
               <CardContent className="pt-6">
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                   <Clock className="h-5 w-5 text-primary" />
-                  Interventions planifiées
+                  Scheduled interventions
                 </h3>
                 <div className="space-y-3">
                   {interventions.map((intervention) => (
@@ -139,7 +139,7 @@ export default function Agenda() {
               <CardContent className="pt-6">
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                   <CalendarIcon className="h-5 w-5 text-primary" />
-                  Visites & rendez-vous
+                  Visits & appointments
                 </h3>
                 <div className="space-y-3">
                   {visites.map((visite) => (

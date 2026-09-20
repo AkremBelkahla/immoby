@@ -5,26 +5,26 @@ import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, Cart
 
 const revenusData = [
   { mois: "Jan", revenus: 12000 },
-  { mois: "Fév", revenus: 15000 },
+  { mois: "Feb", revenus: 15000 },
   { mois: "Mar", revenus: 13000 },
-  { mois: "Avr", revenus: 16000 },
-  { mois: "Mai", revenus: 14000 },
-  { mois: "Juin", revenus: 17000 },
+  { mois: "Apr", revenus: 16000 },
+  { mois: "May", revenus: 14000 },
+  { mois: "Jun", revenus: 17000 },
 ];
 
 const retardsData = [
   { mois: "Jan", retards: 2 },
-  { mois: "Fév", retards: 1 },
+  { mois: "Feb", retards: 1 },
   { mois: "Mar", retards: 3 },
-  { mois: "Avr", retards: 1 },
-  { mois: "Mai", retards: 2 },
-  { mois: "Juin", retards: 0 },
+  { mois: "Apr", retards: 1 },
+  { mois: "May", retards: 2 },
+  { mois: "Jun", retards: 0 },
 ];
 
 const savData = [
-  { name: "Ouvert", value: 5 },
-  { name: "En cours", value: 8 },
-  { name: "Clôturé", value: 15 },
+  { name: "Open", value: 5 },
+  { name: "In progress", value: 8 },
+  { name: "Closed", value: 15 },
 ];
 
 const COLORS = ["hsl(var(--chart-1))", "hsl(var(--chart-2))", "hsl(var(--chart-3))"];
@@ -33,23 +33,23 @@ export default function Rapports() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Rapports"
-        description="Consultez vos statistiques et rapports"
+        title="Reports"
+        description="View your statistics and reports"
       />
 
       <Tabs defaultValue="stats" className="w-full">
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="stats">Statistiques globales</TabsTrigger>
-          <TabsTrigger value="revenus">Revenus & loyers</TabsTrigger>
-          <TabsTrigger value="retards">Retards & impayés</TabsTrigger>
-          <TabsTrigger value="sav">Activité SAV</TabsTrigger>
+          <TabsTrigger value="stats">Global statistics</TabsTrigger>
+          <TabsTrigger value="revenus">Revenue & rents</TabsTrigger>
+          <TabsTrigger value="retards">Late & unpaid</TabsTrigger>
+          <TabsTrigger value="sav">Support activity</TabsTrigger>
         </TabsList>
 
         <TabsContent value="stats" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Total biens</CardTitle>
+                <CardTitle className="text-sm font-medium">Total properties</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">20</div>
@@ -57,7 +57,7 @@ export default function Rapports() {
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Taux d'occupation</CardTitle>
+                <CardTitle className="text-sm font-medium">Occupancy rate</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">95%</div>
@@ -65,7 +65,7 @@ export default function Rapports() {
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Revenus mensuels</CardTitle>
+                <CardTitle className="text-sm font-medium">Monthly revenue</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">15 000€</div>
@@ -73,7 +73,7 @@ export default function Rapports() {
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Tickets SAV</CardTitle>
+                <CardTitle className="text-sm font-medium">Support tickets</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">13</div>
@@ -85,7 +85,7 @@ export default function Rapports() {
         <TabsContent value="revenus">
           <Card>
             <CardHeader>
-              <CardTitle>Évolution des revenus</CardTitle>
+              <CardTitle>Revenue trend</CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
@@ -105,7 +105,7 @@ export default function Rapports() {
         <TabsContent value="retards">
           <Card>
             <CardHeader>
-              <CardTitle>Retards de paiement</CardTitle>
+              <CardTitle>Payment delays</CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
@@ -125,7 +125,7 @@ export default function Rapports() {
         <TabsContent value="sav">
           <Card>
             <CardHeader>
-              <CardTitle>Répartition des tickets SAV</CardTitle>
+              <CardTitle>Support tickets breakdown</CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>

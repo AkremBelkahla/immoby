@@ -6,8 +6,8 @@ import { Plus, Building2 } from "lucide-react";
 
 const mockProprietaires = Array.from({ length: 8 }, (_, i) => ({
   id: (i + 1).toString(),
-  nom: `Propriétaire ${i + 1}`,
-  email: `proprio${i + 1}@email.com`,
+  nom: `Owner ${i + 1}`,
+  email: `owner${i + 1}@email.com`,
   telephone: `06 ${Math.floor(10000000 + Math.random() * 90000000)}`,
   nbBiens: Math.floor(Math.random() * 5) + 1,
 }));
@@ -16,12 +16,12 @@ export default function Proprietaires() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Liste des propriétaires"
-        description="Gérez vos propriétaires"
+        title="Owners list"
+        description="Manage your property owners"
         actions={
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Nouveau propriétaire
+            New owner
           </Button>
         }
       />
@@ -32,10 +32,10 @@ export default function Proprietaires() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Nom</TableHead>
+                <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Téléphone</TableHead>
-                <TableHead>Nombre de biens</TableHead>
+                <TableHead>Phone</TableHead>
+                <TableHead>Number of properties</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -52,7 +52,7 @@ export default function Proprietaires() {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm">Voir</Button>
+                    <Button variant="ghost" size="sm">View</Button>
                   </TableCell>
                 </TableRow>
               ))}

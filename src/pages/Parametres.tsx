@@ -11,15 +11,15 @@ export default function Parametres() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Paramètres"
-        description="Configurez votre application"
+        title="Settings"
+        description="Configure your application"
       />
 
       <Tabs defaultValue="users" className="w-full">
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="users">
             <Users className="mr-2 h-4 w-4" />
-            Utilisateurs & rôles
+            Users & roles
           </TabsTrigger>
           <TabsTrigger value="notifications">
             <Bell className="mr-2 h-4 w-4" />
@@ -27,30 +27,30 @@ export default function Parametres() {
           </TabsTrigger>
           <TabsTrigger value="integrations">
             <Link2 className="mr-2 h-4 w-4" />
-            Intégrations
+            Integrations
           </TabsTrigger>
           <TabsTrigger value="templates">
             <FileText className="mr-2 h-4 w-4" />
-            Modèles
+            Templates
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="users" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Utilisateurs</CardTitle>
-              <CardDescription>Gérez les utilisateurs et leurs rôles</CardDescription>
+              <CardTitle>Users</CardTitle>
+              <CardDescription>Manage users and their roles</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-3 border rounded-lg">
                   <div>
-                    <div className="font-medium">Admin Principal</div>
+                    <div className="font-medium">Main Admin</div>
                     <div className="text-sm text-muted-foreground">admin@immoby.com</div>
                   </div>
-                  <Button variant="outline" size="sm">Gérer</Button>
+                  <Button variant="outline" size="sm">Manage</Button>
                 </div>
-                <Button className="w-full">Inviter un utilisateur</Button>
+                <Button className="w-full">Invite user</Button>
               </div>
             </CardContent>
           </Card>
@@ -59,24 +59,24 @@ export default function Parametres() {
         <TabsContent value="notifications" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Préférences de notification</CardTitle>
-              <CardDescription>Configurez vos notifications par email et dans l'app</CardDescription>
+              <CardTitle>Notification preferences</CardTitle>
+              <CardDescription>Configure your email and in-app notifications</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
-                <Label htmlFor="notif-tickets">Nouveaux tickets SAV</Label>
+                <Label htmlFor="notif-tickets">New support tickets</Label>
                 <Switch id="notif-tickets" defaultChecked />
               </div>
               <div className="flex items-center justify-between">
-                <Label htmlFor="notif-paiements">Paiements reçus</Label>
+                <Label htmlFor="notif-paiements">Payments received</Label>
                 <Switch id="notif-paiements" defaultChecked />
               </div>
               <div className="flex items-center justify-between">
-                <Label htmlFor="notif-retards">Retards de paiement</Label>
+                <Label htmlFor="notif-retards">Late payments</Label>
                 <Switch id="notif-retards" defaultChecked />
               </div>
               <div className="flex items-center justify-between">
-                <Label htmlFor="notif-echeances">Échéances de baux</Label>
+                <Label htmlFor="notif-echeances">Lease deadlines</Label>
                 <Switch id="notif-echeances" defaultChecked />
               </div>
             </CardContent>
@@ -86,8 +86,8 @@ export default function Parametres() {
         <TabsContent value="integrations" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Intégrations</CardTitle>
-              <CardDescription>Connectez vos outils préférés</CardDescription>
+              <CardTitle>Integrations</CardTitle>
+              <CardDescription>Connect your favorite tools</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 border rounded-lg">
@@ -96,16 +96,16 @@ export default function Parametres() {
                   <Switch />
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Synchronisez vos événements avec Google Calendar
+                  Sync your events with Google Calendar
                 </p>
               </div>
               <div className="p-4 border rounded-lg">
                 <div className="flex items-center justify-between mb-3">
                   <div className="font-medium">API REST</div>
-                  <Button variant="outline" size="sm">Configurer</Button>
+                  <Button variant="outline" size="sm">Configure</Button>
                 </div>
                 <div className="space-y-2">
-                  <Label>Clé API</Label>
+                  <Label>API key</Label>
                   <Input type="password" placeholder="••••••••••••••••" />
                 </div>
               </div>
@@ -116,17 +116,17 @@ export default function Parametres() {
         <TabsContent value="templates" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Modèles de documents</CardTitle>
-              <CardDescription>Personnalisez vos modèles de documents</CardDescription>
+              <CardTitle>Document templates</CardTitle>
+              <CardDescription>Customize your document templates</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
-              {["Modèle de bail", "Modèle d'état des lieux", "Modèle de quittance", "Modèle de facture"].map((template, i) => (
+              {["Lease template", "Inspection report template", "Rent receipt template", "Invoice template"].map((template, i) => (
                 <div key={i} className="flex items-center justify-between p-3 border rounded-lg">
                   <div className="flex items-center gap-3">
                     <FileText className="h-5 w-5 text-primary" />
                     <span className="font-medium">{template}</span>
                   </div>
-                  <Button variant="outline" size="sm">Modifier</Button>
+                  <Button variant="outline" size="sm">Edit</Button>
                 </div>
               ))}
             </CardContent>

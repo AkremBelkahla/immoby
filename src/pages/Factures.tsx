@@ -7,24 +7,24 @@ import { Plus, FileText } from "lucide-react";
 
 const mockFactures = Array.from({ length: 15 }, (_, i) => ({
   id: (i + 1).toString(),
-  numero: `FAC-2024-${String(i + 1).padStart(4, '0')}`,
-  destinataire: i % 2 === 0 ? `Locataire ${i + 1}` : `Propriétaire ${i + 1}`,
-  type: i % 2 === 0 ? "Loyer" : "Travaux",
+  numero: `INV-2024-${String(i + 1).padStart(4, '0')}`,
+  destinataire: i % 2 === 0 ? `Tenant ${i + 1}` : `Owner ${i + 1}`,
+  type: i % 2 === 0 ? "Rent" : "Works",
   montant: Math.floor(Math.random() * 2000) + 500,
-  date: new Date(2024, 10, i + 1).toLocaleDateString("fr-FR"),
-  statut: i % 3 === 0 ? "Payée" : i % 3 === 1 ? "En attente" : "En retard",
+  date: new Date(2024, 10, i + 1).toLocaleDateString("en-US"),
+  statut: i % 3 === 0 ? "Paid" : i % 3 === 1 ? "Pending" : "Overdue",
 }));
 
 export default function Factures() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Factures"
-        description="Gérez vos factures"
+        title="Invoices"
+        description="Manage your invoices"
         actions={
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Nouvelle facture
+            New invoice
           </Button>
         }
       />
@@ -35,12 +35,12 @@ export default function Factures() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Numéro</TableHead>
-                <TableHead>Destinataire</TableHead>
+                <TableHead>Number</TableHead>
+                <TableHead>Recipient</TableHead>
                 <TableHead>Type</TableHead>
-                <TableHead>Montant</TableHead>
+                <TableHead>Amount</TableHead>
                 <TableHead>Date</TableHead>
-                <TableHead>Statut</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -57,9 +57,9 @@ export default function Factures() {
                   <TableCell>
                     <Badge
                       variant={
-                        facture.statut === "Payée"
+                        facture.statut === "Paid"
                           ? "default"
-                          : facture.statut === "En retard"
+                          : facture.statut === "Overdue"
                           ? "destructive"
                           : "secondary"
                       }

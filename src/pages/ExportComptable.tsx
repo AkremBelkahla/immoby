@@ -9,27 +9,27 @@ export default function ExportComptable() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Export comptable"
-        description="Exportez vos données comptables"
+        title="Accounting export"
+        description="Export your accounting data"
       />
 
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Exporter les écritures</CardTitle>
+            <CardTitle>Export entries</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label>Période</Label>
+              <Label>Period</Label>
               <Select>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Sélectionner une période" />
+                  <SelectValue placeholder="Select a period" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="month">Mois en cours</SelectItem>
-                  <SelectItem value="quarter">Trimestre en cours</SelectItem>
-                  <SelectItem value="year">Année en cours</SelectItem>
-                  <SelectItem value="custom">Personnalisée</SelectItem>
+                  <SelectItem value="month">Current month</SelectItem>
+                  <SelectItem value="quarter">Current quarter</SelectItem>
+                  <SelectItem value="year">Current year</SelectItem>
+                  <SelectItem value="custom">Custom</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -38,7 +38,7 @@ export default function ExportComptable() {
               <Label>Format</Label>
               <Select>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Sélectionner un format" />
+                  <SelectValue placeholder="Select a format" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="csv">CSV</SelectItem>
@@ -50,48 +50,48 @@ export default function ExportComptable() {
 
             <Button className="w-full">
               <Download className="mr-2 h-4 w-4" />
-              Exporter les écritures
+              Export entries
             </Button>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Exporter les factures</CardTitle>
+            <CardTitle>Export invoices</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label>Type de factures</Label>
+              <Label>Invoice type</Label>
               <Select>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Sélectionner" />
+                  <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Toutes</SelectItem>
-                  <SelectItem value="paid">Payées</SelectItem>
-                  <SelectItem value="pending">En attente</SelectItem>
-                  <SelectItem value="overdue">En retard</SelectItem>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="paid">Paid</SelectItem>
+                  <SelectItem value="pending">Pending</SelectItem>
+                  <SelectItem value="overdue">Overdue</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label>Période</Label>
+              <Label>Period</Label>
               <Select>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Sélectionner une période" />
+                  <SelectValue placeholder="Select a period" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="month">Mois en cours</SelectItem>
-                  <SelectItem value="quarter">Trimestre en cours</SelectItem>
-                  <SelectItem value="year">Année en cours</SelectItem>
+                  <SelectItem value="month">Current month</SelectItem>
+                  <SelectItem value="quarter">Current quarter</SelectItem>
+                  <SelectItem value="year">Current year</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <Button className="w-full">
               <FileSpreadsheet className="mr-2 h-4 w-4" />
-              Exporter les factures
+              Export invoices
             </Button>
           </CardContent>
         </Card>
@@ -99,11 +99,11 @@ export default function ExportComptable() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Exports récents</CardTitle>
+          <CardTitle>Recent exports</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {["Écritures_Novembre_2024.csv", "Factures_Q4_2024.xlsx", "Export_Annuel_2024.pdf"].map((file, i) => (
+            {["Entries_November_2024.csv", "Invoices_Q4_2024.xlsx", "Annual_Export_2024.pdf"].map((file, i) => (
               <div key={i} className="flex items-center justify-between p-3 border rounded-lg">
                 <div className="flex items-center gap-3">
                   <FileSpreadsheet className="h-5 w-5 text-primary" />

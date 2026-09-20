@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Couleur principale #04618c */
+    /* Main color #04618c */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -18,11 +18,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* #04618c comme primary */
+    /* #04618c as primary */
     --primary: 199 94% 28%;
     --primary-foreground: 0 0% 100%;
 
-    /* Surfaces claires */
+    /* Light surfaces */
     --secondary: 199 94% 94%;
     --secondary-foreground: 199 94% 28%;
 

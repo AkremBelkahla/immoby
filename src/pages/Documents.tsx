@@ -5,10 +5,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, Upload, Download } from "lucide-react";
 
 const mockDocs = {
-  baux: Array.from({ length: 5 }, (_, i) => ({ id: i, nom: `Bail_${i + 1}.pdf`, date: "15/11/2024" })),
-  etats: Array.from({ length: 4 }, (_, i) => ({ id: i, nom: `EDL_${i + 1}.pdf`, date: "10/11/2024" })),
-  factures: Array.from({ length: 6 }, (_, i) => ({ id: i, nom: `Facture_${i + 1}.pdf`, date: "20/11/2024" })),
-  autres: Array.from({ length: 3 }, (_, i) => ({ id: i, nom: `Document_${i + 1}.pdf`, date: "05/11/2024" })),
+  baux: Array.from({ length: 5 }, (_, i) => ({ id: i, nom: `Lease_${i + 1}.pdf`, date: "11/15/2024" })),
+  etats: Array.from({ length: 4 }, (_, i) => ({ id: i, nom: `Inspection_${i + 1}.pdf`, date: "11/10/2024" })),
+  factures: Array.from({ length: 6 }, (_, i) => ({ id: i, nom: `Invoice_${i + 1}.pdf`, date: "11/20/2024" })),
+  autres: Array.from({ length: 3 }, (_, i) => ({ id: i, nom: `Document_${i + 1}.pdf`, date: "11/05/2024" })),
 };
 
 export default function Documents() {
@@ -16,21 +16,21 @@ export default function Documents() {
     <div className="space-y-6">
       <PageHeader
         title="Documents"
-        description="Gérez tous vos documents"
+        description="Manage all your documents"
         actions={
           <Button>
             <Upload className="mr-2 h-4 w-4" />
-            Importer un document
+            Upload document
           </Button>
         }
       />
 
       <Tabs defaultValue="baux" className="w-full">
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="baux">Baux & annexes</TabsTrigger>
-          <TabsTrigger value="etats">États des lieux</TabsTrigger>
-          <TabsTrigger value="factures">Factures</TabsTrigger>
-          <TabsTrigger value="autres">Autres</TabsTrigger>
+          <TabsTrigger value="baux">Leases & addendums</TabsTrigger>
+          <TabsTrigger value="etats">Inspections</TabsTrigger>
+          <TabsTrigger value="factures">Invoices</TabsTrigger>
+          <TabsTrigger value="autres">Other</TabsTrigger>
         </TabsList>
 
         {Object.entries(mockDocs).map(([key, docs]) => (

@@ -8,10 +8,10 @@ import { Plus, Calendar } from "lucide-react";
 const mockInterventions = Array.from({ length: 12 }, (_, i) => ({
   id: (i + 1).toString(),
   titre: `Intervention ${i + 1}`,
-  bien: `Appartement T${(i % 4) + 1}`,
-  prestataire: `Prestataire ${(i % 5) + 1}`,
-  date: new Date(2024, 10, i + 5).toLocaleDateString("fr-FR"),
-  statut: i % 3 === 0 ? "Planifiée" : i % 3 === 1 ? "En cours" : "Terminée",
+  bien: `Apartment ${(i % 4) + 1}BR`,
+  prestataire: `Contractor ${(i % 5) + 1}`,
+  date: new Date(2024, 10, i + 5).toLocaleDateString("en-US"),
+  statut: i % 3 === 0 ? "Scheduled" : i % 3 === 1 ? "In progress" : "Completed",
   cout: Math.floor(Math.random() * 500) + 100,
 }));
 
@@ -20,11 +20,11 @@ export default function Interventions() {
     <div className="space-y-6">
       <PageHeader
         title="Interventions"
-        description="Gérez les interventions techniques"
+        description="Manage technical interventions"
         actions={
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Nouvelle intervention
+            New intervention
           </Button>
         }
       />
@@ -35,12 +35,12 @@ export default function Interventions() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Titre</TableHead>
-                <TableHead>Bien</TableHead>
-                <TableHead>Prestataire</TableHead>
+                <TableHead>Title</TableHead>
+                <TableHead>Property</TableHead>
+                <TableHead>Contractor</TableHead>
                 <TableHead>Date</TableHead>
-                <TableHead>Statut</TableHead>
-                <TableHead>Coût</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Cost</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -58,9 +58,9 @@ export default function Interventions() {
                   <TableCell>
                     <Badge
                       variant={
-                        intervention.statut === "Terminée"
+                        intervention.statut === "Completed"
                           ? "default"
-                          : intervention.statut === "En cours"
+                          : intervention.statut === "In progress"
                           ? "secondary"
                           : "outline"
                       }

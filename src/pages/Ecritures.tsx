@@ -56,7 +56,7 @@ export default function Ecritures() {
     return filterJournal === "all" || ecriture.journal === filterJournal;
   });
 
-  // Calculer les totaux
+  // Compute totals
   const totalDebit = filteredEcritures.reduce((sum, e) => sum + e.debit, 0);
   const totalCredit = filteredEcritures.reduce((sum, e) => sum + e.credit, 0);
   const solde = totalCredit - totalDebit;
@@ -66,9 +66,9 @@ export default function Ecritures() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm("Êtes-vous sûr de vouloir supprimer cette écriture ?")) {
+    if (confirm("Are you sure you want to delete this entry?")) {
       setEcritures(ecritures.filter((e) => e.id !== id));
-      toast.success("Écriture supprimée avec succès");
+      toast.success("Entry deleted successfully");
     }
   };
 
@@ -82,20 +82,20 @@ export default function Ecritures() {
       libelle: formData.get("libelle") as string,
       debit: Number(formData.get("debit")) || 0,
       credit: Number(formData.get("credit")) || 0,
-      journal: formData.get("journal") as "Banque" | "Ventes" | "Achats" | "OD",
+      journal: formData.get("journal") as "Bank" | "Sales" | "Purchases" | "Misc",
     };
 
     setEcritures([ecritureData, ...ecritures]);
-    toast.success("Écriture ajoutée avec succès");
+    toast.success("Entry added successfully");
     setDialogOpen(false);
   };
 
   const getJournalBadge = (journal: string) => {
     const variants: Record<string, "default" | "secondary" | "outline"> = {
-      Banque: "default",
-      Ventes: "secondary",
-      Achats: "outline",
-      OD: "outline",
+      Bank: "default",
+      Sales: "secondary",
+      Purchases: "outline",
+      Misc: "outline",
     };
     return variants[journal] || "outline";
   };
@@ -103,28 +103,28 @@ export default function Ecritures() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Écritures comptables"
-        description="Suivez vos mouvements financiers"
+        title="Accounting entries"
+        description="Track your financial transactions"
         actions={
           <Button onClick={handleAdd}>
             <PlusCircle className="mr-2 h-4 w-4" />
-            Ajouter une écriture
+            Add entry
           </Button>
         }
       />
 
-      {/* Indicateurs */}
+      {/* Indicators */}
       <div className="grid gap-4 md:grid-cols-3">
         <div className="rounded-lg border bg-card p-6">
-          <p className="text-sm font-medium text-muted-foreground">Total Débit</p>
+          <p className="text-sm font-medium text-muted-foreground">Total Debit</p>
           <p className="text-2xl font-bold text-red-600">{totalDebit.toLocaleString()} €</p>
         </div>
         <div className="rounded-lg border bg-card p-6">
-          <p className="text-sm font-medium text-muted-foreground">Total Crédit</p>
+          <p className="text-sm font-medium text-muted-foreground">Total Credit</p>
           <p className="text-2xl font-bold text-green-600">{totalCredit.toLocaleString()} €</p>
         </div>
         <div className="rounded-lg border bg-card p-6">
-          <p className="text-sm font-medium text-muted-foreground">Solde</p>
+          <p className="text-sm font-medium text-muted-foreground">Balance</p>
           <p
             className={`text-2xl font-bold ${
               solde >= 0 ? "text-green-600" : "text-red-600"
@@ -135,18 +135,18 @@ export default function Ecritures() {
         </div>
       </div>
 
-      {/* Filtre */}
+      {/* Filter */}
       <div className="flex gap-4">
         <Select value={filterJournal} onValueChange={setFilterJournal}>
           <SelectTrigger className="w-[200px]">
             <SelectValue placeholder="Journal" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Tous les journaux</SelectItem>
-            <SelectItem value="Banque">Banque</SelectItem>
-            <SelectItem value="Ventes">Ventes</SelectItem>
-            <SelectItem value="Achats">Achats</SelectItem>
-            <SelectItem value="OD">OD</SelectItem>
+            <SelectItem value="all">All journals</SelectItem>
+            <SelectItem value="Bank">Bank</SelectItem>
+            <SelectItem value="Sales">Sales</SelectItem>
+            <SelectItem value="Purchases">Purchases</SelectItem>
+            <SelectItem value="Misc">Misc</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -157,10 +157,10 @@ export default function Ecritures() {
           <TableHeader>
             <TableRow>
               <TableHead>Date</TableHead>
-              <TableHead>Libellé</TableHead>
+              <TableHead>Label</TableHead>
               <TableHead>Journal</TableHead>
-              <TableHead className="text-right">Débit</TableHead>
-              <TableHead className="text-right">Crédit</TableHead>
+              <TableHead className="text-right">Debit</TableHead>
+              <TableHead className="text-right">Credit</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -199,7 +199,7 @@ export default function Ecritures() {
           <TableFooter>
             <TableRow>
               <TableCell colSpan={3} className="font-bold">
-                Totaux
+                Totals
               </TableCell>
               <TableCell className="text-right font-bold text-red-600">
                 {totalDebit.toLocaleString()} €
@@ -248,9 +248,9 @@ export default function Ecritures() {
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Ajouter une écriture</DialogTitle>
+            <DialogTitle>Add entry</DialogTitle>
             <DialogDescription>
-              Saisissez les informations de l'écriture comptable
+              Enter the accounting entry details
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -265,26 +265,26 @@ export default function Ecritures() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="libelle">Libellé</Label>
+              <Label htmlFor="libelle">Label</Label>
               <Input id="libelle" name="libelle" required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="journal">Journal</Label>
-              <Select name="journal" defaultValue="Banque" required>
+              <Select name="journal" defaultValue="Bank" required>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Banque">Banque</SelectItem>
-                  <SelectItem value="Ventes">Ventes</SelectItem>
-                  <SelectItem value="Achats">Achats</SelectItem>
-                  <SelectItem value="OD">OD (Opérations diverses)</SelectItem>
+                  <SelectItem value="Bank">Bank</SelectItem>
+                  <SelectItem value="Sales">Sales</SelectItem>
+                  <SelectItem value="Purchases">Purchases</SelectItem>
+                  <SelectItem value="Misc">Misc (other operations)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="debit">Débit (€)</Label>
+                <Label htmlFor="debit">Debit (€)</Label>
                 <Input
                   id="debit"
                   name="debit"
@@ -295,7 +295,7 @@ export default function Ecritures() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="credit">Crédit (€)</Label>
+                <Label htmlFor="credit">Credit (€)</Label>
                 <Input
                   id="credit"
                   name="credit"
@@ -308,9 +308,9 @@ export default function Ecritures() {
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                Annuler
+                Cancel
               </Button>
-              <Button type="submit">Ajouter</Button>
+              <Button type="submit">Add</Button>
             </DialogFooter>
           </form>
         </DialogContent>

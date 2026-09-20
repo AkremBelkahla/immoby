@@ -29,7 +29,7 @@ export default function Dashboard() {
   const [ticketsPage, setTicketsPage] = useState(1);
   const itemsPerPage = 10;
 
-  // Charger les données au montage
+  // Load data on mount
   useEffect(() => {
     const loadedBiens = getItem<Bien[]>("immo:biens") || seedBiens;
     const loadedBaux = getItem<Bail[]>("immo:baux") || seedBaux;
@@ -42,28 +42,28 @@ export default function Dashboard() {
     setEcritures(loadedEcritures);
   }, []);
 
-  const bauxActifs = baux.filter((b) => b.statut === "Actif").length;
-  const ticketsOuverts = tickets.filter((t) => t.statut !== "Clôturé").length;
+  const bauxActifs = baux.filter((b) => b.statut === "Active").length;
+  const ticketsOuverts = tickets.filter((t) => t.statut !== "Closed").length;
   const totalMouvements = ecritures.reduce((sum, e) => sum + e.debit + e.credit, 0);
 
-  // Données pour les graphiques
+  // Chart data
   const biensParType = [
-    { name: "Appartements", value: biens.filter(b => b.type === "Appartement").length },
-    { name: "Maisons", value: biens.filter(b => b.type === "Maison").length },
-    { name: "Locaux", value: biens.filter(b => b.type === "Local").length },
+    { name: "Apartments", value: biens.filter(b => b.type === "Apartment").length },
+    { name: "Houses", value: biens.filter(b => b.type === "House").length },
+    { name: "Commercial", value: biens.filter(b => b.type === "Commercial").length },
   ];
 
   const COLORS = ['hsl(var(--primary))', 'hsl(var(--secondary))', 'hsl(var(--accent))'];
 
   const loyersParMois = biens.slice(0, 6).map((bien, i) => ({
-    mois: ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin"][i],
+    mois: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"][i],
     loyer: bien.loyer,
   }));
 
   const ticketsParStatut = [
-    { name: "Ouverts", value: tickets.filter(t => t.statut === "Ouvert").length },
-    { name: "En cours", value: tickets.filter(t => t.statut === "En cours").length },
-    { name: "Clôturés", value: tickets.filter(t => t.statut === "Clôturé").length },
+    { name: "Open", value: tickets.filter(t => t.statut === "Open").length },
+    { name: "In progress", value: tickets.filter(t => t.statut === "In progress").length },
+    { name: "Closed", value: tickets.filter(t => t.statut === "Closed").length },
   ];
 
   const mouvementsFinanciers = ecritures.slice(0, 7).map((e, i) => ({
@@ -74,29 +74,29 @@ export default function Dashboard() {
 
   const modules = [
     {
-      title: "Biens immobiliers",
-      description: "Gérer mes biens",
+      title: "Properties",
+      description: "Manage my properties",
       icon: Building2,
       href: "/locatif/biens",
       count: biens.length,
     },
     {
-      title: "Baux",
-      description: "Gérer les contrats",
+      title: "Leases",
+      description: "Manage contracts",
       icon: FileText,
       href: "/locatif/baux",
       count: baux.length,
     },
     {
-      title: "Tickets SAV",
-      description: "Suivre les interventions",
+      title: "Support tickets",
+      description: "Track interventions",
       icon: Wrench,
       href: "/sav/tickets",
       count: tickets.length,
     },
     {
-      title: "Comptabilité",
-      description: "Gérer les écritures",
+      title: "Accounting",
+      description: "Manage entries",
       icon: Calculator,
       href: "/compta/ecritures",
       count: ecritures.length,
@@ -106,48 +106,48 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold">Tableau de bord</h1>
+        <h1 className="text-3xl font-bold">Dashboard</h1>
         <p className="text-muted-foreground mt-1">
-          Vue d'ensemble de votre activité immobilière
+          Overview of your real estate activity
         </p>
       </div>
 
       {/* KPIs */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Kpi
-          title="Biens"
+          title="Properties"
           value={biens.length}
           icon={Building2}
-          description="Biens gérés"
+          description="Managed properties"
         />
         <Kpi
-          title="Baux actifs"
+          title="Active leases"
           value={bauxActifs}
           icon={FileText}
-          description={`${bauxActifs} contrats en cours`}
+          description={`${bauxActifs} ongoing contracts`}
         />
         <Kpi
-          title="Tickets ouverts"
+          title="Open tickets"
           value={ticketsOuverts}
           icon={Wrench}
-          description="Interventions en attente"
+          description="Pending interventions"
         />
         <Kpi
-          title="Mouvements"
+          title="Transactions"
           value={`${totalMouvements.toLocaleString()}€`}
           icon={Calculator}
-          description="Total comptable"
+          description="Accounting total"
         />
       </div>
 
-      {/* Graphiques */}
+      {/* Charts */}
       <div>
-        <h2 className="text-2xl font-semibold mb-4">Statistiques</h2>
+        <h2 className="text-2xl font-semibold mb-4">Statistics</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle>Répartition des biens</CardTitle>
-              <CardDescription>Par type de bien</CardDescription>
+              <CardTitle>Property breakdown</CardTitle>
+              <CardDescription>By property type</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
@@ -174,8 +174,8 @@ export default function Dashboard() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Loyers mensuels</CardTitle>
-              <CardDescription>Évolution sur 6 mois</CardDescription>
+              <CardTitle>Monthly rents</CardTitle>
+              <CardDescription>6-month trend</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
@@ -193,8 +193,8 @@ export default function Dashboard() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Tickets SAV</CardTitle>
-              <CardDescription>Répartition par statut</CardDescription>
+              <CardTitle>Support tickets</CardTitle>
+              <CardDescription>Breakdown by status</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
@@ -212,8 +212,8 @@ export default function Dashboard() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Mouvements financiers</CardTitle>
-              <CardDescription>Débits et crédits sur 7 jours</CardDescription>
+              <CardTitle>Financial transactions</CardTitle>
+              <CardDescription>Debits and credits over 7 days</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
@@ -223,8 +223,8 @@ export default function Dashboard() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="credit" fill="hsl(142 76% 36%)" name="Crédit" />
-                  <Bar dataKey="debit" fill="hsl(0 84% 60%)" name="Débit" />
+                  <Bar dataKey="credit" fill="hsl(142 76% 36%)" name="Credit" />
+                  <Bar dataKey="debit" fill="hsl(0 84% 60%)" name="Debit" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -232,9 +232,9 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Raccourcis modules */}
+      {/* Module shortcuts */}
       <div>
-        <h2 className="text-2xl font-semibold mb-4">Accès rapide</h2>
+        <h2 className="text-2xl font-semibold mb-4">Quick access</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {modules.map((module) => (
             <Card key={module.href} className="hover:shadow-lg transition-shadow">
@@ -249,7 +249,7 @@ export default function Dashboard() {
               <CardContent>
                 <Link to={module.href}>
                   <Button variant="outline" className="w-full">
-                    Accéder
+                    Open
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -259,29 +259,29 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Tableaux détaillés */}
+      {/* Detailed tables */}
       <div className="space-y-6">
-        {/* Tableau des biens */}
+        {/* Properties table */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle>Liste des biens</CardTitle>
-              <CardDescription>Gérez tous vos biens immobiliers</CardDescription>
+              <CardTitle>Properties list</CardTitle>
+              <CardDescription>Manage all your real estate properties</CardDescription>
             </div>
             <Link to="/locatif/biens">
-              <Button>Voir tout</Button>
+              <Button>View all</Button>
             </Link>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Titre</TableHead>
+                  <TableHead>Title</TableHead>
                   <TableHead>Type</TableHead>
-                  <TableHead>Ville</TableHead>
-                  <TableHead>Surface</TableHead>
-                  <TableHead>Loyer</TableHead>
-                  <TableHead>Statut</TableHead>
+                  <TableHead>City</TableHead>
+                  <TableHead>Area</TableHead>
+                  <TableHead>Rent</TableHead>
+                  <TableHead>Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -297,7 +297,7 @@ export default function Dashboard() {
                       <TableCell>
                         <span
                           className={`text-xs px-2 py-1 rounded-full ${
-                            bien.statut === "Loué"
+                            bien.statut === "Rented"
                               ? "bg-primary/10 text-primary"
                               : "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
                           }`}
@@ -343,25 +343,25 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Tableau des tickets */}
+        {/* Tickets table */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle>Tickets SAV</CardTitle>
-              <CardDescription>Suivez toutes les demandes d'intervention</CardDescription>
+              <CardTitle>Support tickets</CardTitle>
+              <CardDescription>Track all intervention requests</CardDescription>
             </div>
             <Link to="/sav/tickets">
-              <Button>Voir tout</Button>
+              <Button>View all</Button>
             </Link>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Titre</TableHead>
+                  <TableHead>Title</TableHead>
                   <TableHead>Description</TableHead>
-                  <TableHead>Priorité</TableHead>
-                  <TableHead>Statut</TableHead>
+                  <TableHead>Priority</TableHead>
+                  <TableHead>Status</TableHead>
                   <TableHead>Date</TableHead>
                 </TableRow>
               </TableHeader>
@@ -375,9 +375,9 @@ export default function Dashboard() {
                       <TableCell>
                         <span
                           className={`text-xs px-2 py-1 rounded-full ${
-                            ticket.priorite === "Haute"
+                            ticket.priorite === "High"
                               ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                              : ticket.priorite === "Moyenne"
+                              : ticket.priorite === "Medium"
                               ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300"
                               : "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
                           }`}

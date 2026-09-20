@@ -10,11 +10,11 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 
 const mockLocataires = Array.from({ length: 15 }, (_, i) => ({
   id: (i + 1).toString(),
-  nom: `Locataire ${i + 1}`,
-  email: `locataire${i + 1}@email.com`,
+  nom: `Tenant ${i + 1}`,
+  email: `tenant${i + 1}@email.com`,
   telephone: `06 ${Math.floor(10000000 + Math.random() * 90000000)}`,
-  bienOccupe: `Appartement T${(i % 4) + 1}`,
-  statut: i % 3 === 0 ? "À jour" : i % 3 === 1 ? "Retard" : "Préavis",
+  bienOccupe: `Apartment ${(i % 4) + 1}BR`,
+  statut: i % 3 === 0 ? "Up to date" : i % 3 === 1 ? "Late" : "Notice",
 }));
 
 export default function Locataires() {
@@ -36,12 +36,12 @@ export default function Locataires() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Locataires"
-        description="Gérez vos locataires"
+        title="Tenants"
+        description="Manage your tenants"
         actions={
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Nouveau locataire
+            New tenant
           </Button>
         }
       />
@@ -52,7 +52,7 @@ export default function Locataires() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Rechercher un locataire..."
+                placeholder="Search a tenant..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-9"
@@ -64,10 +64,10 @@ export default function Locataires() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Nom</TableHead>
+                <TableHead>Name</TableHead>
                 <TableHead>Contact</TableHead>
-                <TableHead>Bien occupé</TableHead>
-                <TableHead>Statut</TableHead>
+                <TableHead>Occupied property</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -89,12 +89,12 @@ export default function Locataires() {
                   </TableCell>
                   <TableCell>{locataire.bienOccupe}</TableCell>
                   <TableCell>
-                    <Badge variant={locataire.statut === "À jour" ? "default" : locataire.statut === "Retard" ? "destructive" : "secondary"}>
+                    <Badge variant={locataire.statut === "Up to date" ? "default" : locataire.statut === "Late" ? "destructive" : "secondary"}>
                       {locataire.statut}
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm">Voir</Button>
+                    <Button variant="ghost" size="sm">View</Button>
                   </TableCell>
                 </TableRow>
               ))}

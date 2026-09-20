@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 
 const mockRevenus = Array.from({ length: 10 }, (_, i) => ({
   id: (i + 1).toString(),
-  bien: `Appartement T${(i % 4) + 1} - Paris`,
-  proprietaire: `Propriétaire ${(i % 5) + 1}`,
+  bien: `Apartment ${(i % 4) + 1}BR - Paris`,
+  proprietaire: `Owner ${(i % 5) + 1}`,
   loyerMensuel: 800 + (i * 100),
   revenuAnnuel: (800 + (i * 100)) * 12,
   tauxOccupation: 90 + (i % 10),
@@ -18,14 +18,14 @@ export default function RevenusBien() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Revenus par bien"
-        description="Suivez les revenus de chaque bien"
+        title="Revenue per property"
+        description="Track the revenue of each property"
       />
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Revenus annuels totaux</CardTitle>
+            <CardTitle className="text-sm font-medium">Total annual revenue</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalRevenus.toLocaleString()} €</div>
@@ -33,7 +33,7 @@ export default function RevenusBien() {
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Nombre de biens</CardTitle>
+            <CardTitle className="text-sm font-medium">Number of properties</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{mockRevenus.length}</div>
@@ -41,7 +41,7 @@ export default function RevenusBien() {
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Taux d'occupation moyen</CardTitle>
+            <CardTitle className="text-sm font-medium">Average occupancy rate</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -57,11 +57,11 @@ export default function RevenusBien() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Bien</TableHead>
-                <TableHead>Propriétaire</TableHead>
-                <TableHead>Loyer mensuel</TableHead>
-                <TableHead>Revenu annuel</TableHead>
-                <TableHead>Taux d'occupation</TableHead>
+                <TableHead>Property</TableHead>
+                <TableHead>Owner</TableHead>
+                <TableHead>Monthly rent</TableHead>
+                <TableHead>Annual revenue</TableHead>
+                <TableHead>Occupancy rate</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

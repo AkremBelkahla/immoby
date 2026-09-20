@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getItem, setItem } from "@/lib/storage";
 
-// Hook générique pour persister un état dans localStorage
+// Generic hook to persist state in localStorage
 export function useLocalStore<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(() => {
     const stored = getItem<T>(key);
