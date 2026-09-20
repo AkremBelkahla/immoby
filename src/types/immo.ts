@@ -1,13 +1,13 @@
-// Types pour la plateforme de gestion immobilière
+// Types for the property management platform
 
 export type Bien = {
   id: string;
   titre: string;
   ville: string;
-  type: "Appartement" | "Maison" | "Local";
+  type: "Apartment" | "House" | "Commercial";
   surface: number;
   loyer: number;
-  statut: "Disponible" | "Loué";
+  statut: "Available" | "Rented";
   createdAt: string;
 };
 
@@ -19,15 +19,15 @@ export type Bail = {
   fin?: string;
   loyer: number;
   depot: number;
-  statut: "Actif" | "Clos";
+  statut: "Active" | "Closed";
 };
 
 export type Ticket = {
   id: string;
   titre: string;
   description?: string;
-  priorite: "Basse" | "Moyenne" | "Haute";
-  statut: "Ouvert" | "En cours" | "Clôturé";
+  priorite: "Low" | "Medium" | "High";
+  statut: "Open" | "In progress" | "Closed";
   createdAt: string;
 };
 
@@ -37,5 +37,5 @@ export type Ecriture = {
   libelle: string;
   debit: number;
   credit: number;
-  journal: "Banque" | "Ventes" | "Achats" | "OD";
+  journal: "Bank" | "Sales" | "Purchases" | "Misc";
 };

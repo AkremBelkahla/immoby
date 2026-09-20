@@ -9,42 +9,42 @@ const plans = [
   {
     name: "Starter",
     price: "29€",
-    description: "Parfait pour débuter",
+    description: "Perfect to get started",
     features: [
-      "Jusqu'à 10 biens",
-      "Gestion locative complète",
-      "SAV basique",
-      "Support par email",
-      "1 utilisateur",
+      "Up to 10 properties",
+      "Full rental management",
+      "Basic support tickets",
+      "Email support",
+      "1 user",
     ],
   },
   {
     name: "Pro",
     price: "79€",
-    description: "Pour les professionnels",
+    description: "For professionals",
     popular: true,
     features: [
-      "Jusqu'à 50 biens",
-      "Toutes les fonctionnalités",
-      "SAV avancé",
-      "Support prioritaire",
-      "5 utilisateurs",
-      "Rapports personnalisés",
+      "Up to 50 properties",
+      "All features",
+      "Advanced support tickets",
+      "Priority support",
+      "5 users",
+      "Custom reports",
       "API access",
     ],
   },
   {
     name: "Enterprise",
-    price: "Sur mesure",
-    description: "Pour les grandes structures",
+    price: "Custom",
+    description: "For large organizations",
     features: [
-      "Biens illimités",
-      "Toutes les fonctionnalités",
-      "Support dédié 24/7",
-      "Utilisateurs illimités",
-      "Formation personnalisée",
-      "Intégrations sur mesure",
-      "SLA garanti",
+      "Unlimited properties",
+      "All features",
+      "Dedicated 24/7 support",
+      "Unlimited users",
+      "Personalized training",
+      "Custom integrations",
+      "Guaranteed SLA",
     ],
   },
 ];
@@ -53,8 +53,8 @@ export default function Tarifs() {
   return (
     <div>
       <PageHeaderBg 
-        title="Tarifs transparents" 
-        subtitle="Choisissez le plan qui correspond à vos besoins"
+        title="Transparent pricing" 
+        subtitle="Choose the plan that fits your needs"
       />
       
       <div className="container py-12">
@@ -70,7 +70,7 @@ export default function Tarifs() {
             {plan.popular && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <span className="bg-primary text-primary-foreground text-sm font-semibold px-4 py-1 rounded-full">
-                  Populaire
+                  Popular
                 </span>
               </div>
             )}
@@ -79,8 +79,8 @@ export default function Tarifs() {
               <CardDescription>{plan.description}</CardDescription>
               <div className="mt-4">
                 <span className="text-4xl font-bold">{plan.price}</span>
-                {plan.price !== "Sur mesure" && (
-                  <span className="text-muted-foreground">/mois</span>
+                {plan.price !== "Custom" && (
+                  <span className="text-muted-foreground">/month</span>
                 )}
               </div>
             </CardHeader>
@@ -99,7 +99,7 @@ export default function Tarifs() {
                   variant={plan.popular ? "default" : "outline"}
                   size="lg"
                 >
-                  {plan.price === "Sur mesure" ? "Nous contacter" : "Commencer l'essai"}
+                  {plan.price === "Custom" ? "Contact us" : "Start free trial"}
                 </Button>
               </Link>
             </CardContent>
@@ -109,9 +109,9 @@ export default function Tarifs() {
 
       <div className="mt-16 mb-16 text-center">
         <p className="text-muted-foreground">
-          Besoin d'aide pour choisir ?{" "}
+          Need help choosing?{" "}
           <Link to="/contact" className="text-primary hover:underline">
-            Contactez notre équipe
+            Contact our team
           </Link>
         </p>
       </div>

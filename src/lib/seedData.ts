@@ -1,14 +1,14 @@
 import { Bien, Bail, Ticket, Ecriture } from "@/types/immo";
 
-// Données de démonstration pour initialiser localStorage
+// Demo data to initialize localStorage
 
 const villes = ["Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille"];
-const types: ("Appartement" | "Maison" | "Local")[] = ["Appartement", "Maison", "Local"];
-const statuts: ("Disponible" | "Loué")[] = ["Disponible", "Loué"];
+const types: ("Apartment" | "House" | "Commercial")[] = ["Apartment", "House", "Commercial"];
+const statuts: ("Available" | "Rented")[] = ["Available", "Rented"];
 
 export const seedBiens: Bien[] = Array.from({ length: 50 }, (_, i) => ({
   id: (i + 1).toString(),
-  titre: `${types[i % 3]} ${i < 7 ? "T" + (i % 4 + 1) : i < 14 ? "avec jardin" : i < 21 ? "Centre-ville" : i < 35 ? "Vue mer" : "Rénové"}`,
+  titre: `${types[i % 3]} ${i < 7 ? (i % 4 + 1) + "BR" : i < 14 ? "with garden" : i < 21 ? "Downtown" : i < 35 ? "Sea view" : "Renovated"}`,
   ville: villes[i % villes.length],
   type: types[i % 3],
   surface: 30 + (i * 10) % 150,
@@ -32,31 +32,31 @@ export const seedBaux: Bail[] = Array.from({ length: 40 }, (_, i) => ({
   fin: i % 4 === 0 ? new Date(2025, (i % 12), 1).toISOString().split('T')[0] : undefined,
   loyer: seedBiens[i % seedBiens.length].loyer,
   depot: seedBiens[i % seedBiens.length].loyer * 2,
-  statut: i % 4 === 0 ? "Clos" : "Actif",
+  statut: i % 4 === 0 ? "Closed" : "Active",
 }));
 
 const ticketsTitres = [
-  "Fuite d'eau salle de bain", "Ampoule grillée hall d'entrée", "Chaudière en panne",
-  "Peinture rafraîchissement", "Porte d'entrée bloquée", "Volets cassés",
-  "Problème électrique", "Fuite robinet cuisine", "Serrure défectueuse",
-  "Fenêtre ne ferme plus", "Radiateur ne chauffe pas", "Détecteur fumée à changer",
-  "Interphone HS", "Boîte aux lettres cassée", "Gouttière bouchée",
-  "Infiltration d'eau", "Prise électrique défectueuse", "Ventilation bruyante",
-  "Store endommagé", "Carrelage fissuré"
+  "Bathroom water leak", "Burnt-out bulb in entrance hall", "Boiler breakdown",
+  "Paint touch-up", "Front door stuck", "Broken shutters",
+  "Electrical issue", "Kitchen tap leak", "Faulty lock",
+  "Window won't close", "Radiator not heating", "Smoke detector to replace",
+  "Intercom not working", "Broken mailbox", "Clogged gutter",
+  "Water infiltration", "Faulty power outlet", "Noisy ventilation",
+  "Damaged blind", "Cracked tiles"
 ];
 
 const ticketsDescriptions = [
-  "Intervention urgente nécessaire", "À remplacer rapidement",
-  "Plus d'eau chaude depuis ce matin", "Rafraîchir la peinture",
-  "Impossible d'ouvrir", "Suite à la tempête", "Disjoncteur qui saute",
-  "Fuite importante", "Difficile de fermer à clé", "Problème d'étanchéité",
-  "Pas de chauffage", "Batterie faible", "Ne sonne plus",
-  "Suite à un vandalisme", "Eau stagnante", "Plafond humide",
-  "Potentiel danger", "Bruit anormal", "Ne remonte plus", "Besoin de réparation"
+  "Urgent intervention needed", "To be replaced quickly",
+  "No hot water since this morning", "Refresh the paint",
+  "Cannot open", "After the storm", "Circuit breaker keeps tripping",
+  "Major leak", "Hard to lock", "Sealing issue",
+  "No heating", "Low battery", "No longer rings",
+  "Following vandalism", "Standing water", "Damp ceiling",
+  "Potential hazard", "Abnormal noise", "Won't go up", "Needs repair"
 ];
 
-const priorites: ("Basse" | "Moyenne" | "Haute")[] = ["Basse", "Moyenne", "Haute"];
-const statutsTickets: ("Ouvert" | "En cours" | "Clôturé")[] = ["Ouvert", "En cours", "Clôturé"];
+const priorites: ("Low" | "Medium" | "High")[] = ["Low", "Medium", "High"];
+const statutsTickets: ("Open" | "In progress" | "Closed")[] = ["Open", "In progress", "Closed"];
 
 export const seedTickets: Ticket[] = Array.from({ length: 35 }, (_, i) => ({
   id: (i + 1).toString(),
@@ -68,15 +68,15 @@ export const seedTickets: Ticket[] = Array.from({ length: 35 }, (_, i) => ({
 }));
 
 const libelles = [
-  "Loyer octobre", "Loyer novembre", "Loyer décembre",
-  "Réparation plomberie", "Taxe foncière", "Assurance habitation",
-  "Charges copropriété", "Travaux peinture", "Entretien jardin",
-  "Électricité", "Eau", "Gaz", "Internet", "Assurance PNO",
-  "Honoraires gestionnaire", "Frais bancaires", "Réparation chauffage",
-  "Nettoyage", "Diagnostic immobilier", "Commission agence"
+  "October rent", "November rent", "December rent",
+  "Plumbing repair", "Property tax", "Home insurance",
+  "Condo fees", "Painting work", "Garden maintenance",
+  "Electricity", "Water", "Gas", "Internet", "PNO insurance",
+  "Management fees", "Bank charges", "Heating repair",
+  "Cleaning", "Property diagnostics", "Agency commission"
 ];
 
-const journaux: ("Banque" | "Ventes" | "Achats" | "OD")[] = ["Banque", "Ventes", "Achats", "OD"];
+const journaux: ("Bank" | "Sales" | "Purchases" | "Misc")[] = ["Bank", "Sales", "Purchases", "Misc"];
 
 export const seedEcritures: Ecriture[] = Array.from({ length: 20 }, (_, i) => ({
   id: (i + 1).toString(),

@@ -14,7 +14,7 @@ type BienLocation = {
   id: string;
   titre: string;
   ville: string;
-  type: "Appartement" | "Maison" | "Local";
+  type: "Apartment" | "House" | "Commercial";
   surface: number;
   loyer: number;
   image: string;
@@ -24,9 +24,9 @@ const villes = ["Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes", "Str
 
 const biensLocation: BienLocation[] = Array.from({ length: 30 }, (_, i) => ({
   id: (i + 1).toString(),
-  titre: `${i % 3 === 0 ? "Appartement" : i % 3 === 1 ? "Maison" : "Local"} ${i < 10 ? "T" + (i % 5 + 1) : i < 20 ? "avec terrasse" : "Centre-ville"}`,
+  titre: `${i % 3 === 0 ? "Apartment" : i % 3 === 1 ? "House" : "Commercial"} ${i < 10 ? (i % 5 + 1) + "BR" : i < 20 ? "with terrace" : "Downtown"}`,
   ville: villes[i % villes.length],
-  type: i % 3 === 0 ? "Appartement" : i % 3 === 1 ? "Maison" : "Local",
+  type: i % 3 === 0 ? "Apartment" : i % 3 === 1 ? "House" : "Commercial",
   surface: 30 + (i * 15) % 150,
   loyer: 500 + (i * 120) % 2500,
   image: "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=400&h=300&fit=crop",
@@ -41,7 +41,7 @@ export default function Location() {
 
   const itemsPerPage = 12;
 
-  // Filtrage
+  // Filtering
   const filteredBiens = biensLocation.filter((bien) => {
     const matchSearch = bien.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
                        bien.ville.toLowerCase().includes(searchTerm.toLowerCase());
@@ -67,22 +67,22 @@ export default function Location() {
 
   return (
     <>
-      <PageHeaderBg title="Locations disponibles" subtitle="Trouvez votre bien idéal parmi nos 30 propriétés" />
+      <PageHeaderBg title="Available rentals" subtitle="Find your ideal property among our 30 listings" />
       
       <div className="container py-12">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filtres */}
+          {/* Filters sidebar */}
           <aside className="lg:w-64 space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Filtres</CardTitle>
+                <CardTitle className="text-lg">Filters</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label htmlFor="search">Rechercher</Label>
+                  <Label htmlFor="search">Search</Label>
                   <Input
                     id="search"
-                    placeholder="Titre, ville..."
+                    placeholder="Title, city..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="mt-1"
@@ -90,13 +90,13 @@ export default function Location() {
                 </div>
 
                 <div>
-                  <Label htmlFor="ville">Ville</Label>
+                  <Label htmlFor="ville">City</Label>
                   <Select value={villeFilter} onValueChange={setVilleFilter}>
                     <SelectTrigger id="ville" className="mt-1">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Toutes les villes</SelectItem>
+                      <SelectItem value="all">All cities</SelectItem>
                       {villes.map((ville) => (
                         <SelectItem key={ville} value={ville}>
                           {ville}
@@ -107,22 +107,22 @@ export default function Location() {
                 </div>
 
                 <div>
-                  <Label htmlFor="type">Type de bien</Label>
+                  <Label htmlFor="type">Property type</Label>
                   <Select value={typeFilter} onValueChange={setTypeFilter}>
                     <SelectTrigger id="type" className="mt-1">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Tous les types</SelectItem>
-                      <SelectItem value="Appartement">Appartement</SelectItem>
-                      <SelectItem value="Maison">Maison</SelectItem>
-                      <SelectItem value="Local">Local</SelectItem>
+                      <SelectItem value="all">All types</SelectItem>
+                      <SelectItem value="Apartment">Apartment</SelectItem>
+                      <SelectItem value="House">House</SelectItem>
+                      <SelectItem value="Commercial">Commercial</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div>
-                  <Label htmlFor="loyer">Loyer max: {loyerMax[0]}€</Label>
+                  <Label htmlFor="loyer">Max rent: {loyerMax[0]}€</Label>
                   <Slider
                     id="loyer"
                     min={500}
@@ -135,7 +135,7 @@ export default function Location() {
                 </div>
 
                 <Button variant="outline" onClick={resetFilters} className="w-full">
-                  Réinitialiser
+                  Reset
                 </Button>
               </CardContent>
             </Card>
@@ -143,13 +143,13 @@ export default function Location() {
             <Card className="bg-primary text-primary-foreground">
               <CardContent className="pt-6">
                 <p className="text-sm">
-                  <strong>{filteredBiens.length}</strong> bien{filteredBiens.length > 1 ? "s" : ""} disponible{filteredBiens.length > 1 ? "s" : ""}
+                  <strong>{filteredBiens.length}</strong> propert{filteredBiens.length > 1 ? "ies" : "y"} available
                 </p>
               </CardContent>
             </Card>
           </aside>
 
-          {/* Grille des biens */}
+          {/* Properties grid */}
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
               {currentBiens.map((bien) => (
@@ -182,12 +182,12 @@ export default function Location() {
                       {bien.surface} m²
                     </div>
                     <div className="text-2xl font-bold text-primary">
-                      {bien.loyer}€<span className="text-sm font-normal text-muted-foreground">/mois</span>
+                      {bien.loyer}€<span className="text-sm font-normal text-muted-foreground">/month</span>
                     </div>
                   </CardContent>
                   
                   <CardFooter>
-                    <Button className="w-full">Voir le bien</Button>
+                    <Button className="w-full">View property</Button>
                   </CardFooter>
                 </Card>
               ))}

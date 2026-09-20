@@ -1,91 +1,91 @@
 export default function PolitiqueConfidentialite() {
   return (
     <div className="container py-12 max-w-4xl">
-      <h1 className="text-4xl font-bold mb-8">Politique de confidentialité</h1>
+      <h1 className="text-4xl font-bold mb-8">Privacy policy</h1>
       
       <div className="prose prose-slate max-w-none space-y-6">
         <section>
-          <h2 className="text-2xl font-semibold mb-4">1. Collecte des données</h2>
+          <h2 className="text-2xl font-semibold mb-4">1. Data collection</h2>
           <p className="text-muted-foreground">
-            Immoby collecte des données personnelles dans le cadre de l'utilisation de ses services. 
-            Ces données incluent notamment : nom, prénom, email, numéro de téléphone, et informations relatives
-            à vos biens immobiliers.
+            Immoby collects personal data as part of the use of its services. 
+            This data includes, in particular: last name, first name, email, phone number, and information
+            relating to your real estate properties.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">2. Utilisation des données</h2>
+          <h2 className="text-2xl font-semibold mb-4">2. Use of data</h2>
           <p className="text-muted-foreground">
-            Les données collectées sont utilisées pour :
+            The collected data is used to:
           </p>
           <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-            <li>Fournir et améliorer nos services</li>
-            <li>Gérer votre compte utilisateur</li>
-            <li>Vous envoyer des communications relatives à nos services</li>
-            <li>Assurer la sécurité de la plateforme</li>
-            <li>Respecter nos obligations légales</li>
+            <li>Provide and improve our services</li>
+            <li>Manage your user account</li>
+            <li>Send you communications relating to our services</li>
+            <li>Ensure the security of the platform</li>
+            <li>Comply with our legal obligations</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">3. Partage des données</h2>
+          <h2 className="text-2xl font-semibold mb-4">3. Data sharing</h2>
           <p className="text-muted-foreground">
-            Vos données personnelles ne sont pas vendues à des tiers. Elles peuvent être partagées uniquement avec :
+            Your personal data is not sold to third parties. It may only be shared with:
           </p>
           <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-            <li>Nos prestataires techniques (hébergement, support)</li>
-            <li>Les autorités compétentes en cas d'obligation légale</li>
+            <li>Our technical service providers (hosting, support)</li>
+            <li>Competent authorities when required by law</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">4. Sécurité des données</h2>
+          <h2 className="text-2xl font-semibold mb-4">4. Data security</h2>
           <p className="text-muted-foreground">
-            Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour 
-            protéger vos données contre tout accès, modification, divulgation ou destruction non autorisés.
+            We implement appropriate technical and organizational security measures to 
+            protect your data against unauthorized access, modification, disclosure or destruction.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">5. Vos droits</h2>
+          <h2 className="text-2xl font-semibold mb-4">5. Your rights</h2>
           <p className="text-muted-foreground">
-            Conformément au RGPD, vous disposez des droits suivants :
+            In accordance with the GDPR, you have the following rights:
           </p>
           <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-            <li>Droit d'accès à vos données personnelles</li>
-            <li>Droit de rectification de vos données</li>
-            <li>Droit à l'effacement de vos données</li>
-            <li>Droit à la limitation du traitement</li>
-            <li>Droit à la portabilité de vos données</li>
-            <li>Droit d'opposition au traitement</li>
+            <li>Right of access to your personal data</li>
+            <li>Right to rectify your data</li>
+            <li>Right to erasure of your data</li>
+            <li>Right to restriction of processing</li>
+            <li>Right to data portability</li>
+            <li>Right to object to processing</li>
           </ul>
           <p className="text-muted-foreground mt-4">
-            Pour exercer ces droits, contactez-nous à : contact@immoby.fr
+            To exercise these rights, contact us at: contact@immoby.fr
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">6. Cookies</h2>
           <p className="text-muted-foreground">
-            Notre site utilise des cookies pour améliorer votre expérience utilisateur. Vous pouvez configurer 
-            votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient être limitées.
+            Our site uses cookies to improve your user experience. You can configure 
+            your browser to refuse cookies, but some features of the site may be limited.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">7. Modifications</h2>
+          <h2 className="text-2xl font-semibold mb-4">7. Changes</h2>
           <p className="text-muted-foreground">
-            Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. 
-            Les modifications entrent en vigueur dès leur publication sur cette page.
+            We reserve the right to modify this privacy policy at any time. 
+            Changes take effect as soon as they are published on this page.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">8. Contact</h2>
           <p className="text-muted-foreground">
-            Pour toute question concernant cette politique de confidentialité, contactez-nous :<br />
-            Email : contact@immoby.fr<br />
-            Adresse : 123 Avenue des Champs-Élysées, 75008 Paris, France
+            For any questions about this privacy policy, contact us:<br />
+            Email: contact@immoby.fr<br />
+            Address: 123 Avenue des Champs-Élysées, 75008 Paris, France
           </p>
         </section>
       </div>

@@ -6,90 +6,90 @@ import { ParallaxCTA } from "@/components/ParallaxCTA";
 const features = [
   {
     icon: Building2,
-    title: "Gestion des biens",
-    description: "Centralisez toutes les informations de vos biens immobiliers : appartements, maisons, locaux commerciaux.",
+    title: "Property management",
+    description: "Centralize all your property information: apartments, houses, commercial spaces.",
     benefits: [
-      "Fiches détaillées par bien",
-      "Photos et documents associés",
-      "Historique des modifications",
-      "Statut en temps réel",
+      "Detailed property records",
+      "Associated photos and documents",
+      "Change history",
+      "Real-time status",
     ],
   },
   {
     icon: FileText,
-    title: "Gestion des baux",
-    description: "Suivez vos contrats de location, échéances et renouvellements.",
+    title: "Lease management",
+    description: "Track your rental agreements, due dates and renewals.",
     benefits: [
-      "Création de baux en quelques clics",
-      "Alertes d'échéances",
-      "Gestion des dépôts de garantie",
-      "Quittances automatiques",
+      "Create leases in a few clicks",
+      "Due date alerts",
+      "Security deposit management",
+      "Automatic rent receipts",
     ],
   },
   {
     icon: Wrench,
-    title: "Service après-vente",
-    description: "Gérez les demandes d'intervention et la maintenance de vos biens.",
+    title: "After-sales service",
+    description: "Manage intervention requests and property maintenance.",
     benefits: [
-      "Système de tickets",
-      "Priorisation des urgences",
-      "Suivi des interventions",
-      "Communication avec les locataires",
+      "Ticket system",
+      "Emergency prioritization",
+      "Intervention tracking",
+      "Tenant communication",
     ],
   },
   {
     icon: Calculator,
-    title: "Comptabilité intégrée",
-    description: "Pilotez vos finances avec des outils comptables complets.",
+    title: "Integrated accounting",
+    description: "Manage your finances with complete accounting tools.",
     benefits: [
-      "Écritures comptables",
-      "Rapprochement bancaire",
-      "Exports comptables",
-      "Tableaux de bord financiers",
+      "Accounting entries",
+      "Bank reconciliation",
+      "Accounting exports",
+      "Financial dashboards",
     ],
   },
   {
     icon: Users,
-    title: "Multi-utilisateurs",
-    description: "Collaborez efficacement avec votre équipe.",
+    title: "Multi-user",
+    description: "Collaborate efficiently with your team.",
     benefits: [
-      "Gestion des rôles et permissions",
-      "Historique des actions",
-      "Notifications en temps réel",
-      "Assignation de tâches",
+      "Roles and permissions management",
+      "Action history",
+      "Real-time notifications",
+      "Task assignment",
     ],
   },
   {
     icon: BarChart3,
-    title: "Reporting avancé",
-    description: "Analysez vos performances avec des rapports détaillés.",
+    title: "Advanced reporting",
+    description: "Analyze your performance with detailed reports.",
     benefits: [
-      "KPIs en temps réel",
-      "Graphiques personnalisables",
-      "Export de données",
-      "Prévisions financières",
+      "Real-time KPIs",
+      "Customizable charts",
+      "Data export",
+      "Financial forecasts",
     ],
   },
   {
     icon: Bell,
-    title: "Notifications intelligentes",
-    description: "Restez informé des événements importants.",
+    title: "Smart notifications",
+    description: "Stay informed about important events.",
     benefits: [
-      "Alertes personnalisables",
-      "Rappels automatiques",
-      "Notifications par email",
-      "Résumés quotidiens",
+      "Customizable alerts",
+      "Automatic reminders",
+      "Email notifications",
+      "Daily summaries",
     ],
   },
   {
     icon: Cloud,
     title: "Cloud & Offline",
-    description: "Accédez à vos données partout, même hors ligne.",
+    description: "Access your data anywhere, even offline.",
     benefits: [
-      "Synchronisation automatique",
-      "Mode hors ligne",
-      "Sauvegarde automatique",
-      "Sécurité renforcée",
+      "Automatic synchronization",
+      "Offline mode",
+      "Automatic backup",
+      "Enhanced security",
     ],
   },
 ];
@@ -98,8 +98,8 @@ export default function Fonctionnalites() {
   return (
     <div>
       <PageHeaderBg 
-        title="Fonctionnalités" 
-        subtitle="Une plateforme complète pour votre gestion immobilière"
+        title="Features" 
+        subtitle="A complete platform for your property management"
       />
       
       <div className="container py-12">

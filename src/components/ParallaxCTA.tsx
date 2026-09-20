@@ -18,21 +18,21 @@ export function ParallaxCTA() {
       <div className="relative h-full container flex items-center justify-center text-center">
         <div className="space-y-6 text-white animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold">
-            Prêt à simplifier votre gestion immobilière ?
+            Ready to simplify your property management?
           </h2>
           <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-            Rejoignez les centaines de gestionnaires qui utilisent déjà Immoby
+            Join the hundreds of managers already using Immoby
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link to="/dashboard">
               <Button size="lg" variant="secondary" className="text-lg h-12">
-                Essayer gratuitement
+                Try for free
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/contact">
               <Button size="lg" variant="outline" className="text-lg h-12 bg-white/10 text-white border-white hover:bg-white hover:text-primary backdrop-blur-sm">
-                Nous contacter
+                Contact us
               </Button>
             </Link>
           </div>

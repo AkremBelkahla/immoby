@@ -8,7 +8,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { MarketingLayout } from "./components/MarketingLayout";
 import { AppLayout } from "./components/AppLayout";
 
-// Pages marketing
+// Marketing pages
 import Landing from "./pages/Landing";
 import Location from "./pages/Location";
 import Fonctionnalites from "./pages/Fonctionnalites";
@@ -18,7 +18,7 @@ import APropos from "./pages/APropos";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 
-// Pages application
+// Application pages
 import Dashboard from "./pages/Dashboard";
 import Biens from "./pages/Biens";
 import Baux from "./pages/Baux";
@@ -51,7 +51,7 @@ function App() {
           <Toaster />
           <Sonner />
           <Routes>
-              {/* Routes marketing */}
+              {/* Marketing routes */}
               <Route element={<MarketingLayout />}>
                 <Route path="/" element={<Landing />} />
                 <Route path="/location" element={<Location />} />
@@ -63,32 +63,32 @@ function App() {
                 <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
               </Route>
 
-            {/* Routes application (dashboard) */}
+            {/* Application routes (dashboard) */}
             <Route element={<AppLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               
-              {/* Locatif */}
+              {/* Rentals */}
               <Route path="/locatif/biens" element={<Biens />} />
               <Route path="/locatif/baux" element={<Baux />} />
               <Route path="/locatif/locataires" element={<Locataires />} />
               <Route path="/locatif/etats-lieux" element={<EtatsLieux />} />
               
-              {/* Propriétaires */}
+              {/* Owners */}
               <Route path="/proprietaires/liste" element={<Proprietaires />} />
               <Route path="/proprietaires/revenus" element={<RevenusBien />} />
               
-              {/* SAV */}
+              {/* Support */}
               <Route path="/sav/tickets" element={<Tickets />} />
               <Route path="/sav/interventions" element={<Interventions />} />
               <Route path="/sav/prestataires" element={<Prestataires />} />
               
-              {/* Comptabilité */}
+              {/* Accounting */}
               <Route path="/compta/ecritures" element={<Ecritures />} />
               <Route path="/compta/factures" element={<Factures />} />
               <Route path="/compta/reglements" element={<Reglements />} />
               <Route path="/compta/export" element={<ExportComptable />} />
               
-              {/* Autres sections */}
+              {/* Other sections */}
               <Route path="/documents" element={<Documents />} />
               <Route path="/rapports" element={<Rapports />} />
               <Route path="/agenda" element={<Agenda />} />

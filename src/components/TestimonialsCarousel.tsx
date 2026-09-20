@@ -12,43 +12,43 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Sophie Martin",
-    role: "Gestionnaire immobilier",
+    role: "Property manager",
     avatar: "SM",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
     rating: 5,
-    comment: "Immoby a transformé ma façon de gérer mes biens. L'interface est intuitive et les fonctionnalités sont exactement ce dont j'avais besoin.",
+    comment: "Immoby has transformed the way I manage my properties. The interface is intuitive and the features are exactly what I needed.",
   },
   {
     name: "Pierre Dubois",
-    role: "Propriétaire",
+    role: "Property owner",
     avatar: "PD",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
     rating: 5,
-    comment: "Un outil indispensable pour suivre mes locations. Le module de comptabilité est particulièrement bien pensé.",
+    comment: "An essential tool for tracking my rentals. The accounting module is particularly well designed.",
   },
   {
     name: "Marie Laurent",
-    role: "Agent immobilier",
+    role: "Real estate agent",
     avatar: "ML",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
     rating: 5,
-    comment: "La gestion des tickets SAV et des interventions est un vrai plus. Mes clients sont plus satisfaits depuis que j'utilise Immoby.",
+    comment: "Managing support tickets and interventions is a real plus. My clients have been more satisfied since I started using Immoby.",
   },
   {
     name: "Thomas Rousseau",
-    role: "Investisseur",
+    role: "Investor",
     avatar: "TR",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     rating: 5,
-    comment: "Les rapports détaillés me permettent de prendre de meilleures décisions d'investissement. Interface moderne et performante.",
+    comment: "The detailed reports help me make better investment decisions. A modern and efficient interface.",
   },
   {
     name: "Claire Moreau",
-    role: "Gestionnaire de patrimoine",
+    role: "Wealth manager",
     avatar: "CM",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
     rating: 5,
-    comment: "Excellent outil de gestion ! La synchronisation automatique et le mode hors ligne sont des fonctionnalités que j'apprécie énormément.",
+    comment: "Excellent management tool! Automatic sync and offline mode are features I really appreciate.",
   },
 ];
 
@@ -57,9 +57,9 @@ export function TestimonialsCarousel() {
     <section className="py-20 bg-muted/30">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Ce que nos clients disent</h2>
+          <h2 className="text-3xl font-bold mb-4">What our clients say</h2>
           <p className="text-muted-foreground">
-            Découvrez les témoignages de professionnels qui utilisent Immoby au quotidien
+            Discover testimonials from professionals who use Immoby every day
           </p>
         </div>
 

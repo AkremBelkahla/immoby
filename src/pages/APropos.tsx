@@ -8,49 +8,49 @@ export default function APropos() {
     {
       icon: Building2,
       title: "Innovation",
-      description: "Nous utilisons les dernières technologies pour simplifier la gestion immobilière.",
+      description: "We use the latest technologies to simplify property management.",
     },
     {
       icon: Target,
-      title: "Efficacité",
-      description: "Notre solution optimise votre temps et vos processus de gestion au quotidien.",
+      title: "Efficiency",
+      description: "Our solution optimizes your time and day-to-day management processes.",
     },
     {
       icon: Users,
-      title: "Accompagnement",
-      description: "Une équipe dédiée pour vous accompagner dans l'utilisation de notre plateforme.",
+      title: "Support",
+      description: "A dedicated team to help you get the most out of our platform.",
     },
     {
       icon: Award,
       title: "Excellence",
-      description: "Nous visons l'excellence dans chaque fonctionnalité que nous développons.",
+      description: "We strive for excellence in every feature we build.",
     },
   ];
 
   return (
     <div className="min-h-screen">
       <PageHeaderBg 
-        title="À propos d'Immoby" 
-        subtitle="Découvrez notre mission et nos valeurs"
+        title="About Immoby" 
+        subtitle="Discover our mission and values"
       />
 
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Notre mission</h2>
+              <h2 className="text-3xl font-bold mb-6">Our mission</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Immoby a été créé avec une vision claire : simplifier la gestion immobilière 
-                pour les professionnels et les particuliers.
+                Immoby was created with a clear vision: to simplify property management 
+                for professionals and individuals.
               </p>
               <p className="text-lg text-muted-foreground mb-4">
-                Nous comprenons les défis quotidiens auxquels vous faites face : la gestion 
-                des biens, le suivi des baux, la comptabilité, et le service après-vente. 
-                C'est pourquoi nous avons développé une solution tout-en-un, intuitive et puissante.
+                We understand the daily challenges you face: managing properties, 
+                tracking leases, accounting, and after-sales service. That's why we 
+                built an all-in-one, intuitive and powerful solution.
               </p>
               <p className="text-lg text-muted-foreground">
-                Notre objectif est de vous faire gagner du temps et de l'efficacité, tout en 
-                vous offrant une vision claire et complète de votre patrimoine immobilier.
+                Our goal is to save you time and increase your efficiency, while giving 
+                you a clear and complete view of your real estate portfolio.
               </p>
             </div>
             <div className="relative">
@@ -63,7 +63,7 @@ export default function APropos() {
                       </div>
                       <div>
                         <p className="text-3xl font-bold">500+</p>
-                        <p className="text-sm text-muted-foreground">Utilisateurs actifs</p>
+                        <p className="text-sm text-muted-foreground">Active users</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -72,7 +72,7 @@ export default function APropos() {
                       </div>
                       <div>
                         <p className="text-3xl font-bold">10K+</p>
-                        <p className="text-sm text-muted-foreground">Biens gérés</p>
+                        <p className="text-sm text-muted-foreground">Managed properties</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -81,7 +81,7 @@ export default function APropos() {
                       </div>
                       <div>
                         <p className="text-3xl font-bold">98%</p>
-                        <p className="text-sm text-muted-foreground">Satisfaction client</p>
+                        <p className="text-sm text-muted-foreground">Customer satisfaction</p>
                       </div>
                     </div>
                   </div>
@@ -91,7 +91,7 @@ export default function APropos() {
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold text-center mb-12">Nos valeurs</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">Our values</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
