@@ -54,10 +54,10 @@ const testimonials = [
 
 export function TestimonialsCarousel() {
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-16 lg:py-20 bg-card">
       <div className="container">
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-black lg:text-4xl/snug">What Our Clients Say</h2>
+          <h2 className="text-2xl font-semibold text-ink lg:text-4xl/snug">What Our Clients Say</h2>
           <span className="mt-2.5 block h-0.5 w-36 rounded-full bg-gradient-to-r from-primary via-primary/70 to-transparent" />
           <p className="mt-4 text-gray">
             Discover testimonials from professionals who use Immoby every day
@@ -74,7 +74,7 @@ export function TestimonialsCarousel() {
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
+                <div className="h-full p-1">
                   <Card className="h-full rounded-2xl border-gray/20">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4 mb-4">
@@ -83,7 +83,7 @@ export function TestimonialsCarousel() {
                           <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="font-semibold text-black">{testimonial.name}</p>
+                          <p className="font-semibold text-ink">{testimonial.name}</p>
                           <p className="text-sm text-gray">{testimonial.role}</p>
                         </div>
                       </div>

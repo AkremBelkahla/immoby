@@ -11,6 +11,7 @@ import { AppLayout } from "./components/AppLayout";
 // Marketing pages
 import Landing from "./pages/Landing";
 import Location from "./pages/Location";
+import PropertyDetail from "./pages/PropertyDetail";
 import Fonctionnalites from "./pages/Fonctionnalites";
 import Tarifs from "./pages/Tarifs";
 import Contact from "./pages/Contact";
@@ -55,6 +56,7 @@ function App() {
               <Route element={<MarketingLayout />}>
                 <Route path="/" element={<Landing />} />
                 <Route path="/location" element={<Location />} />
+                <Route path="/location/:id" element={<PropertyDetail />} />
                 <Route path="/fonctionnalites" element={<Fonctionnalites />} />
                 <Route path="/tarifs" element={<Tarifs />} />
                 <Route path="/a-propos" element={<APropos />} />

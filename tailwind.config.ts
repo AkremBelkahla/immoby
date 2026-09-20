@@ -21,9 +21,10 @@ export default {
       },
       colors: {
         black: "#171718",
+        ink: "hsl(var(--ink) / <alpha-value>)",
         gray: {
-          DEFAULT: "#525866",
-          light: "#f5f5f5",
+          DEFAULT: "hsl(var(--gray) / <alpha-value>)",
+          light: "hsl(var(--gray-light) / <alpha-value>)",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

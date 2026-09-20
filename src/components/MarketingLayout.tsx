@@ -34,7 +34,7 @@ export function MarketingLayout() {
       {/* Header */}
       <header
         className={cn(
-          "sticky top-0 z-50 bg-white py-2.5 duration-300 xl:py-4",
+          "sticky top-0 z-50 bg-card py-2.5 duration-300 xl:py-4",
           scrolled && "py-2.5 shadow-sm"
         )}
       >
@@ -53,7 +53,7 @@ export function MarketingLayout() {
               </Link>
               <button
                 type="button"
-                className="absolute -top-0.5 right-3.5 cursor-pointer border border-gray/10 hover:text-black"
+                className="absolute -top-0.5 right-3.5 cursor-pointer border border-gray/10 hover:text-ink"
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
               >
@@ -84,7 +84,7 @@ export function MarketingLayout() {
           {/* Overlay */}
           {menuOpen && (
             <div
-              className="fixed inset-0 z-40 bg-white/10 backdrop-blur-md"
+              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-md"
               onClick={() => setMenuOpen(false)}
             />
           )}
@@ -107,7 +107,7 @@ export function MarketingLayout() {
             </Link>
             <button
               type="button"
-              className="cursor-pointer text-black hover:opacity-80 xl:hidden"
+              className="cursor-pointer text-ink hover:opacity-80 xl:hidden"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
@@ -123,7 +123,7 @@ export function MarketingLayout() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto bg-gradient-to-b from-white to-transparent pt-16 pb-5 font-medium">
+      <footer className="mt-auto bg-gradient-to-b from-card to-transparent pt-16 pb-5 font-medium">
         <div className="container">
           <div className="grid gap-7 pb-10 sm:grid-cols-2 sm:gap-10 xl:grid-cols-4 xl:gap-20">
             <div className="flex w-full max-w-96 flex-col divide-y divide-gray/20">
@@ -135,7 +135,7 @@ export function MarketingLayout() {
                 </p>
               </div>
               <div className="space-y-2.5 pt-5 xl:pt-8">
-                <label className="inline-block text-lg font-semibold uppercase text-black">
+                <label className="inline-block text-lg font-semibold uppercase text-ink">
                   Newsletter
                 </label>
                 <form
@@ -145,7 +145,7 @@ export function MarketingLayout() {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="form-input w-full !rounded-r-none border border-gray/40 bg-white !py-2.5 text-sm"
+                    className="form-input w-full !rounded-r-none border border-gray/40 bg-card !py-2.5 text-sm"
                   />
                   <button className="btn rounded-l-none px-2 text-sm" type="submit">
                     Subscribe
@@ -155,7 +155,7 @@ export function MarketingLayout() {
             </div>
 
             <div className="space-y-3 xl:space-y-4">
-              <h3 className="text-lg font-semibold uppercase text-black">
+              <h3 className="text-lg font-semibold uppercase text-ink">
                 Contact us
               </h3>
               <div className="space-y-3.5">
@@ -169,7 +169,7 @@ export function MarketingLayout() {
                   <h4 className="inline-block text-sm font-medium text-primary underline underline-offset-4">
                     Phone number :
                   </h4>
-                  <a href="tel:+33123456789" className="transition hover:text-black">
+                  <a href="tel:+33123456789" className="transition hover:text-ink">
                     +33 1 23 45 67 89
                   </a>
                 </div>
@@ -177,7 +177,7 @@ export function MarketingLayout() {
                   <h4 className="inline-block text-sm font-medium text-primary underline underline-offset-4">
                     Email :
                   </h4>
-                  <a href="mailto:contact@immoby.app" className="transition hover:text-black">
+                  <a href="mailto:contact@immoby.app" className="transition hover:text-ink">
                     contact@immoby.app
                   </a>
                 </div>
@@ -185,7 +185,7 @@ export function MarketingLayout() {
             </div>
 
             <div className="space-y-3 xl:space-y-4">
-              <h3 className="text-lg font-semibold uppercase text-black">
+              <h3 className="text-lg font-semibold uppercase text-ink">
                 Categories
               </h3>
               <ul className="grid grid-cols-2 flex-col gap-x-10 gap-y-4 sm:flex">
@@ -214,7 +214,7 @@ export function MarketingLayout() {
 
             <div className="divide-y divide-gray/20">
               <div className="space-y-4 pb-5">
-                <h3 className="text-lg font-semibold uppercase text-black">
+                <h3 className="text-lg font-semibold uppercase text-ink">
                   Links
                 </h3>
                 <div className="grid grid-cols-2 gap-x-10 gap-y-4 sm:gap-x-20">
@@ -233,7 +233,7 @@ export function MarketingLayout() {
                 </div>
               </div>
               <div className="space-y-4 pt-5">
-                <h3 className="text-lg font-semibold uppercase text-black">
+                <h3 className="text-lg font-semibold uppercase text-ink">
                   Follow us
                 </h3>
                 <div className="mt-4 flex flex-wrap items-center gap-5 text-gray">
@@ -278,12 +278,20 @@ export function MarketingLayout() {
             </div>
           </div>
           <div className="border-t border-gray/15 pt-5 text-center">
-            <p className="text-black">
+            <p className="text-ink">
               &copy; {new Date().getFullYear()}{" "}
               <Link to="/" className="text-primary transition hover:text-gray">
                 Immoby
               </Link>
-              . All rights reserved.
+              . All rights reserved. Developed by{" "}
+              <a
+                href="https://infinityweb.tn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary transition hover:text-gray"
+              >
+                InfinityWeb.tn
+              </a>
             </p>
           </div>
         </div>

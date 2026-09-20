@@ -122,7 +122,7 @@ const faqRight = [
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-black lg:text-4xl/snug">{children}</h2>
+      <h2 className="text-2xl font-semibold text-ink lg:text-4xl/snug">{children}</h2>
       <span className="mt-2.5 block h-0.5 w-36 rounded-full bg-gradient-to-r from-primary via-primary/70 to-transparent" />
     </div>
   );
@@ -132,7 +132,7 @@ function PropertyCard({ property }: { property: (typeof featuredProperties)[numb
   const [slide, setSlide] = useState(0);
   const total = property.images.length;
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-gray/20 bg-white p-1.5">
+    <div className="w-full overflow-hidden rounded-2xl border border-gray/20 bg-card p-1.5">
       <div className="group relative h-[250px] overflow-hidden rounded-lg">
         <div
           className="flex h-full w-full transition-transform duration-300 ease-in-out"
@@ -150,7 +150,7 @@ function PropertyCard({ property }: { property: (typeof featuredProperties)[numb
         <button
           type="button"
           onClick={() => setSlide((s) => (s - 1 + total) % total)}
-          className="absolute top-1/2 left-2 z-10 grid size-6 -translate-y-1/2 cursor-pointer place-content-center rounded-full bg-white/60 backdrop-blur-md duration-300 hover:bg-white/40"
+          className="absolute top-1/2 left-2 z-10 grid size-6 -translate-y-1/2 cursor-pointer place-content-center rounded-full bg-white/60 text-black backdrop-blur-md duration-300 hover:bg-white/40"
           aria-label="Previous image"
         >
           <ChevronDown className="size-3.5 rotate-90" />
@@ -158,7 +158,7 @@ function PropertyCard({ property }: { property: (typeof featuredProperties)[numb
         <button
           type="button"
           onClick={() => setSlide((s) => (s + 1) % total)}
-          className="absolute top-1/2 right-2 z-10 grid size-6 -translate-y-1/2 cursor-pointer place-content-center rounded-full bg-white/60 backdrop-blur-md duration-300 hover:bg-white/40"
+          className="absolute top-1/2 right-2 z-10 grid size-6 -translate-y-1/2 cursor-pointer place-content-center rounded-full bg-white/60 text-black backdrop-blur-md duration-300 hover:bg-white/40"
           aria-label="Next image"
         >
           <ChevronDown className="size-3.5 -rotate-90" />
@@ -173,7 +173,7 @@ function PropertyCard({ property }: { property: (typeof featuredProperties)[numb
       </div>
       <div className="p-2 pt-4">
         <div className="pb-2.5">
-          <Link to="/location" className="mb-1.5 inline-block text-lg/6 font-semibold text-black transition hover:text-primary">
+          <Link to="/location" className="mb-1.5 inline-block text-lg/6 font-semibold text-ink transition hover:text-primary">
             <span className="line-clamp-1">{property.title}</span>
           </Link>
           <p className="line-clamp-2 min-h-10 text-sm/5 font-medium">{property.address}</p>
@@ -233,7 +233,7 @@ function FilterSelect({
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="relative line-clamp-1 flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray/20 bg-white px-3 py-2.5 pl-8 text-left text-sm/5 shadow-sm lg:border-transparent lg:px-5 lg:py-3.5 lg:pl-11 lg:shadow-none"
+        className="relative line-clamp-1 flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray/20 bg-card px-3 py-2.5 pl-8 text-left text-sm/5 shadow-sm lg:border-transparent lg:px-5 lg:py-3.5 lg:pl-11 lg:shadow-none"
       >
         <span className="absolute top-1/2 left-2 -translate-y-1/2 lg:left-5">
           <Icon className="size-[18px] shrink-0 text-primary" />
@@ -241,10 +241,10 @@ function FilterSelect({
         <span className={cn("text-sm font-normal", !value && "text-gray")}>
           {value || placeholder}
         </span>
-        <ChevronDown className="size-4 text-black" aria-hidden="true" />
+        <ChevronDown className="size-4 text-ink" aria-hidden="true" />
       </button>
       {open && (
-        <div className="absolute inset-x-0 top-full z-30 mt-1 max-h-52 space-y-1 overflow-y-auto rounded-lg border border-gray/30 bg-white p-1.5 text-sm/5 font-medium text-gray shadow-sm">
+        <div className="absolute inset-x-0 top-full z-30 mt-1 max-h-52 space-y-1 overflow-y-auto rounded-lg border border-gray/30 bg-card p-1.5 text-sm/5 font-medium text-gray shadow-sm">
           {options.map((opt) => (
             <button
               key={opt}
@@ -255,7 +255,7 @@ function FilterSelect({
               }}
               className={cn(
                 "relative flex w-full rounded-md px-4 py-1.5 transition hover:bg-gray-light",
-                value === opt && "bg-gray-light text-black"
+                value === opt && "bg-gray-light text-ink"
               )}
             >
               {opt}
@@ -282,7 +282,7 @@ export default function Landing() {
   return (
     <div className="grow">
       {/* Hero */}
-      <div className="bg-gradient-to-b from-white to-transparent py-14 lg:pb-5">
+      <div className="bg-gradient-to-b from-card to-transparent py-14 lg:pb-5">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="relative w-full max-w-screen-md text-center lg:py-14 lg:text-left xl:py-20">
@@ -295,7 +295,7 @@ export default function Landing() {
               <span className="rounded-md bg-primary px-2 py-1 text-xs tracking-wider text-white uppercase">
                 Property management
               </span>
-              <h1 className="mt-3 text-[28px]/9 font-semibold text-black sm:text-4xl/normal lg:text-5xl/snug">
+              <h1 className="mt-3 text-[28px]/9 font-semibold text-ink sm:text-4xl/normal lg:text-5xl/snug">
                 Manage Your Properties:
                 <br />
                 <span className="text-primary">Simply &amp; Efficiently</span>
@@ -310,7 +310,7 @@ export default function Landing() {
                     <label
                       key={m}
                       className={cn(
-                        "relative inline-flex min-w-24 cursor-pointer justify-center rounded-md px-4 py-1.5 text-black hover:bg-primary hover:text-white",
+                        "relative inline-flex min-w-24 cursor-pointer justify-center rounded-md px-4 py-1.5 text-ink hover:bg-primary hover:text-white",
                         mode === m && "bg-primary text-white"
                       )}
                     >
@@ -341,7 +341,7 @@ export default function Landing() {
                     <FilterSelect icon={DollarSign} value={price} placeholder="Price" options={priceRanges} onChange={setPrice} />
                     <span className="hidden h-10 w-px shrink-0 rounded-full bg-white/50 lg:block" />
                     <div className="mx-auto mt-2 lg:mt-0">
-                      <button className="btn bg-white text-primary shadow-sm hover:opacity-90 lg:p-[13px]" type="submit">
+                      <button className="btn bg-card text-primary shadow-sm hover:opacity-90 lg:p-[13px]" type="submit">
                         <Search className="size-5 lg:size-6" />
                         <span className="block lg:hidden">Search</span>
                       </button>
@@ -363,7 +363,7 @@ export default function Landing() {
         <div className="container">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="grow">
-              <h2 className="text-2xl font-semibold text-black lg:text-4xl/snug">
+              <h2 className="text-2xl font-semibold text-ink lg:text-4xl/snug">
                 Most Searched Properties
               </h2>
               <span className="mt-2.5 block h-0.5 w-36 rounded-full bg-gradient-to-r from-primary via-primary/70 to-transparent" />
@@ -391,11 +391,11 @@ export default function Landing() {
       </div>
 
       {/* Trusted partners */}
-      <div className="bg-white py-16 lg:py-20">
+      <div className="bg-card py-16 lg:py-20">
         <div className="container">
           <SectionTitle>Trusted Global Partners</SectionTitle>
           <div className="overflow-hidden">
-            <div className="mt-12 flex animate-[marquee_40s_linear_infinite] gap-20 text-sm font-medium whitespace-nowrap text-black">
+            <div className="mt-12 flex animate-[marquee_40s_linear_infinite] gap-20 text-sm font-medium whitespace-nowrap text-ink">
               {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((l, i) => (
                 <img key={i} src={l} loading="lazy" alt="Partner logo" className="w-40 duration-300 hover:scale-110" />
               ))}
@@ -412,7 +412,7 @@ export default function Landing() {
             {categories.map((c) => (
               <div
                 key={c.name}
-                className="group relative overflow-hidden rounded-2xl border border-gray/10 bg-white from-primary/5 to-transparent transition-all duration-300 hover:bg-gradient-to-t"
+                className="group relative overflow-hidden rounded-2xl border border-gray/10 bg-card from-primary/5 to-transparent transition-all duration-300 hover:bg-gradient-to-t"
               >
                 <Link to="/location" className="absolute inset-0" aria-label={c.name} />
                 <div className="aspect-[4/2] overflow-hidden">
@@ -424,7 +424,7 @@ export default function Landing() {
                   />
                 </div>
                 <div className="flex items-center gap-2 p-4 lg:p-5">
-                  <h3 className="text-xl/6 font-semibold text-black group-hover:text-primary">{c.name}</h3>
+                  <h3 className="text-xl/6 font-semibold text-ink group-hover:text-primary">{c.name}</h3>
                   <span className="mt-1 inline-block size-1 rotate-45 bg-primary" />
                   <p className="mt-1 text-xs/4 font-medium">{c.count}</p>
                 </div>
@@ -455,7 +455,7 @@ export default function Landing() {
                   <span className="absolute top-5 left-1 inline-block size-10 bg-primary/10" />
                 </span>
                 <div>
-                  <h3 className="text-xl font-semibold text-black lg:text-2xl">{s.title}</h3>
+                  <h3 className="text-xl font-semibold text-ink lg:text-2xl">{s.title}</h3>
                   <p className="mt-2 text-sm font-medium">{s.text}</p>
                 </div>
               </div>
@@ -470,14 +470,14 @@ export default function Landing() {
           <SectionTitle>Our Property Services</SectionTitle>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <div key={s.title} className="group relative rounded-2xl bg-gradient-to-b from-white to-transparent p-6 pt-16 shadow-sm">
+              <div key={s.title} className="group relative rounded-2xl bg-gradient-to-b from-card to-transparent p-6 pt-16 shadow-sm">
                 <div className="absolute top-0 right-0">
-                  <span className="grid size-16 place-content-center rounded-tr-2xl rounded-bl-2xl bg-primary text-white ring-[10px] ring-[#fafafa]">
+                  <span className="grid size-16 place-content-center rounded-tr-2xl rounded-bl-2xl bg-primary text-white ring-[10px] ring-background">
                     <s.icon className="size-8 shrink-0" />
                   </span>
                 </div>
                 <div className="mt-4">
-                  <h3 className="text-xl font-semibold text-black lg:text-2xl">{s.title}</h3>
+                  <h3 className="text-xl font-semibold text-ink lg:text-2xl">{s.title}</h3>
                   <p className="mt-2.5 text-sm">{s.text}</p>
                 </div>
               </div>
@@ -522,7 +522,7 @@ export default function Landing() {
                     value={`${ci}-${i}`}
                     className="overflow-hidden rounded-xl border border-gray/20"
                   >
-                    <AccordionTrigger className="flex w-full cursor-pointer items-center justify-between gap-5 px-4 py-4 text-left text-base/6 text-black transition hover:text-primary hover:no-underline data-[state=open]:bg-primary/5 data-[state=open]:text-primary lg:text-lg">
+                    <AccordionTrigger className="flex w-full cursor-pointer items-center justify-between gap-5 px-4 py-4 text-left text-base/6 text-ink transition hover:text-primary hover:no-underline data-[state=open]:bg-primary/5 data-[state=open]:text-primary lg:text-lg">
                       {item.q}
                     </AccordionTrigger>
                     <AccordionContent className="p-4 leading-6 text-gray">

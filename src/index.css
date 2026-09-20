@@ -4,11 +4,16 @@
 
 /* Design system definition. All colors, gradients, fonts, etc. should be defined here.
 All colors MUST be HSL. Theme tokens:
-primary #004643 / secondary #d08700 / gray #525866 / gray-light #f5f5f5 / black #171718
+secondary #d08700 / gray #525866 / gray-light #f5f5f5 / black #171718
 */
 
 @layer base {
   :root {
+    /* Theme fixed colors */
+    --ink: 240 2% 9%;
+    --gray: 223 9% 36%;
+    --gray-light: 0 0% 96%;
+
     --background: 0 0% 98%;
     --foreground: 223 9% 36%;
 
@@ -18,8 +23,8 @@ primary #004643 / secondary #d08700 / gray #525866 / gray-light #f5f5f5 / black 
     --popover: 0 0% 100%;
     --popover-foreground: 240 2% 9%;
 
-    /* #004643 */
-    --primary: 177 100% 14%;
+    /* Same primary as dark mode */
+    --primary: 175 60% 45%;
     --primary-foreground: 0 0% 100%;
 
     /* #d08700 */
@@ -31,29 +36,33 @@ primary #004643 / secondary #d08700 / gray #525866 / gray-light #f5f5f5 / black 
     --muted-foreground: 223 9% 36%;
 
     --accent: 0 0% 96%;
-    --accent-foreground: 177 100% 14%;
+    --accent-foreground: 175 60% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 225 9% 87%;
     --input: 225 9% 87%;
-    --ring: 177 100% 14%;
+    --ring: 175 60% 45%;
 
     --radius: 0.5rem;
 
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 223 9% 36%;
-    --sidebar-primary: 177 100% 14%;
+    --sidebar-primary: 175 60% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 177 100% 14%;
+    --sidebar-accent-foreground: 175 60% 45%;
     --sidebar-border: 225 9% 87%;
-    --sidebar-ring: 177 100% 14%;
+    --sidebar-ring: 175 60% 45%;
   }
 
   .dark {
+    --ink: 0 0% 96%;
+    --gray: 220 9% 70%;
+    --gray-light: 240 3% 14%;
+
     --background: 240 3% 8%;
     --foreground: 0 0% 96%;
 
@@ -95,7 +104,7 @@ primary #004643 / secondary #d08700 / gray #525866 / gray-light #f5f5f5 / black 
 
 @layer components {
   .nav-links {
-    @apply relative z-[1] inline-flex w-full overflow-hidden px-4 py-2 text-base font-medium uppercase text-black duration-300 before:absolute before:inset-0 before:z-[-1] before:w-0 before:bg-primary before:duration-300 hover:text-white hover:before:w-full xl:w-auto xl:rounded-md xl:text-sm;
+    @apply relative z-[1] inline-flex w-full overflow-hidden px-4 py-2 text-base font-medium uppercase text-ink duration-300 before:absolute before:inset-0 before:z-[-1] before:w-0 before:bg-primary before:duration-300 hover:text-white hover:before:w-full xl:w-auto xl:rounded-md xl:text-sm;
   }
   .nav-links.active {
     @apply text-white before:w-full;
@@ -105,12 +114,12 @@ primary #004643 / secondary #d08700 / gray #525866 / gray-light #f5f5f5 / black 
     @apply relative inline-flex shrink-0 cursor-pointer items-center gap-2 overflow-hidden rounded-lg bg-primary px-4 py-2 text-white duration-300 after:absolute after:inset-y-0 after:-left-full after:h-full after:w-4 after:-skew-x-[20deg] after:bg-gradient-to-r after:from-transparent after:via-white/10 after:to-transparent after:duration-300 after:ease-linear hover:bg-primary/95 hover:after:left-full [&_svg]:size-[18px] [&_svg]:shrink-0;
   }
   .btn-outline {
-    @apply rounded-lg border border-gray/20 bg-white px-4 py-[7px] text-primary duration-300 hover:bg-gray-light/50;
+    @apply rounded-lg border border-input bg-card px-4 py-[7px] text-primary duration-300 hover:bg-accent;
   }
 
   .form-input,
   .form-textarea {
-    @apply w-full resize-none rounded-lg border border-gray/20 px-4 py-2 font-medium text-black shadow-sm ring-0 placeholder:text-sm placeholder:text-gray/80 focus:border-primary focus:outline-none;
+    @apply w-full resize-none rounded-lg border border-input px-4 py-2 font-medium text-ink shadow-sm ring-0 placeholder:text-sm placeholder:text-muted-foreground focus:border-primary focus:outline-none;
   }
 }
 
